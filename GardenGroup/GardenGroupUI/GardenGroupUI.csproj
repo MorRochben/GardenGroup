@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E35DF5C-FB34-4C0E-9ECB-A342E4ACC883}</ProjectGuid>
+    <ProjectGuid>{05C412A8-B373-48EC-8F6B-D90DD57C2F14}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>GardenGroupUI</RootNamespace>
     <AssemblyName>GardenGroupUI</AssemblyName>
