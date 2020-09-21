@@ -76,5 +76,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GardenGroupDAO\GardenGroupDAO.csproj">
+      <Project>{07b24fc3-822d-4187-8c08-c2f899f105cf}</Project>
+      <Name>GardenGroupDAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GardenGroupModel\GardenGroupModel.csproj">
+      <Project>{eaae8f20-e48f-4c5c-8912-26dce554691d}</Project>
+      <Name>GardenGroupModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
