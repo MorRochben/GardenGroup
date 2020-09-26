@@ -8,7 +8,7 @@ namespace GardenGroupModel
 {
     public enum TypeOfIncident
     {
-        Software,
+        Software = 0,
         Hardware,
         Service
     }

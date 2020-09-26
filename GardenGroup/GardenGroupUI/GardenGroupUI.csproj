@@ -54,6 +54,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControlls\NewIncident.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlls\NewIncident.Designer.cs">
+      <DependentUpon>NewIncident.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +72,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControlls\NewIncident.resx">
+      <DependentUpon>NewIncident.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -77,10 +89,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GardenGroupDAO\GardenGroupDAO.csproj">
-      <Project>{07b24fc3-822d-4187-8c08-c2f899f105cf}</Project>
-      <Name>GardenGroupDAO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GardenGroupModel\GardenGroupModel.csproj">
       <Project>{eaae8f20-e48f-4c5c-8912-26dce554691d}</Project>
       <Name>GardenGroupModel</Name>
