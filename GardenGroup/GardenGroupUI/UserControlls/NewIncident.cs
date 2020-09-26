@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GardenGroupModel;
+using GardenGroupLogic;
 
 namespace GardenGroupUI.UserControlls
 {
@@ -50,8 +51,8 @@ namespace GardenGroupUI.UserControlls
                 (TypeOfIncident)cmbIncicentType.SelectedIndex,
                 (Priority)cmbPriority.SelectedIndex
             );
-            if (ticket == ticket)
-                return;
+            TicketService ticketService = new TicketService();
+            //ticketService.CreateTicket(ticket);
             Close();
         }
 

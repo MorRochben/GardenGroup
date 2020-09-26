@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace GardenGroupDAO
 {
-    class TicketDAO : BaseDAO, ITicketDAO
+    public class TicketDAO : BaseDAO, ITicketDAO
     {
         private string TABLE_NAME = "Incidents";
         public void Create(Ticket newTicket)
