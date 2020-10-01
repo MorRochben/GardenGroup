@@ -34,5 +34,7 @@ namespace GardenGroupModel
             Priority = priority;
             IsSolved = false;
         }
+
+        public Ticket() { }
     }
 }
