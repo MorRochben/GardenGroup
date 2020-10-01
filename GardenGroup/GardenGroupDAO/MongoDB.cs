@@ -29,7 +29,7 @@ namespace GardenGroupDAO
         private MongoDB()
         {
             //CHANGE LATER ON
-            string connectionString = "mongodb+srv://dbUser:dbUserPassword@cluster0.12n4v.azure.mongodb.net/<dbname>?retryWrites=true&w=majority";
+            string connectionString = "mongodb+srv://gardengroup:cuteparrot@cluster0.oa6at.azure.mongodb.net/GardenGroup?retryWrites=true&w=majority";
 
             var client = new MongoClient(connectionString);
             db = client.GetDatabase("GardenGroup");

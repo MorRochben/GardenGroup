@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GardenGroupDAO;
 using GardenGroupModel;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.IdGenerators;
 
 namespace GardenGroupUI
 {
@@ -22,12 +24,17 @@ namespace GardenGroupUI
 
         private void Start()
         {
-            GardenGroupDAO.MongoDB db = GardenGroupDAO.MongoDB.Instance;
             TicketDAO ticketDAO = new TicketDAO();
             UserDAO userDAO = new UserDAO();
 
             List<Ticket> tickets = ticketDAO.GetAll();
             List<User> users = userDAO.GetAll();
+
+
+            ticketDAO.Create(new Ticket("Test Ticket", "This is a description", ObjectId.GenerateNewId().ToString(), new DateTime(), new DateTime().AddDays(5), TypeOfIncident.Hardware, Priority.High));
+
+            Console.WriteLine(users.Count());
+            Console.WriteLine(tickets.Count());
 
             displayAllTickets();
         }
