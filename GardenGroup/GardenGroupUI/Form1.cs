@@ -59,13 +59,13 @@ namespace GardenGroupUI
             }
 
             string ticketString = String.Format(
-                "Subject: {0} \n" + Environment.NewLine + 
-                "Description: {1} \n" + Environment.NewLine + 
-                "Reported by: {2} \n" + Environment.NewLine + 
-                "Reported date: {3} \n" + Environment.NewLine+ 
-                "Deadline: {4} \n" + Environment.NewLine+ 
-                "Type of incident: {5} \n" + Environment.NewLine+ 
-                "Priority level: {6} \n" + Environment.NewLine+ 
+                "Subject: {0} " + Environment.NewLine + 
+                "Description: {1} " + Environment.NewLine + 
+                "Reported by: {2} " + Environment.NewLine + 
+                "Reported date: {3} " + Environment.NewLine+ 
+                "Deadline: {4} " + Environment.NewLine+ 
+                "Type of incident: {5} " + Environment.NewLine+ 
+                "Priority level: {6} " + Environment.NewLine+ 
                 "Is the incident solved? {7}",
                 selectedTicket.Subject, selectedTicket.Description, selectedTicket.ReportedBy, selectedTicket.ReportedDate, selectedTicket.Deadline,
                 selectedTicket.Type, selectedTicket.Priority, selectedTicket.IsSolved);
