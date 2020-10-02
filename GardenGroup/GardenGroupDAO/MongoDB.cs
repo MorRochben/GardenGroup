@@ -28,7 +28,6 @@ namespace GardenGroupDAO
 
         private MongoDB()
         {
-            //CHANGE LATER ON
             string connectionString = "mongodb+srv://gardengroup:cuteparrot@cluster0.oa6at.azure.mongodb.net/GardenGroup?retryWrites=true&w=majority";
 
             var client = new MongoClient(connectionString);
