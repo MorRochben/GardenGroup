@@ -52,7 +52,7 @@ namespace GardenGroupUI.UserControlls
                 (Priority)cmbPriority.SelectedIndex
             );
             TicketService ticketService = new TicketService();
-            //ticketService.CreateTicket(ticket);
+            ticketService.CreateTicket(ticket);
             Close();
         }
 
