@@ -45,5 +45,17 @@ namespace GardenGroupDAO
         {
             db.UpdateDocument<Ticket>(id, TABLE_NAME, updatedTicket);
         }
+
+        
+        //(DB) - Additional functionality - sorting by priority
+        public List<Ticket> GetAllSortedById()
+        {
+            return db.GetSortedIDDocuments<Ticket>(TABLE_NAME);
+        }
+
+        public List<Ticket> GetAllSortedByPriority()
+        {
+            return db.GetSortedPriorityDocuments<Ticket>(TABLE_NAME);
+        }
     }
 }

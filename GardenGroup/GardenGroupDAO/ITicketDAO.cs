@@ -12,5 +12,9 @@ namespace GardenGroupDAO
         List<Ticket> FindByBranch(string branch);
         List<Ticket> GetAll();
         Ticket FindById(string id);
+
+        //Do I put these in the interface or directly in the class?
+        List<Ticket> GetAllSortedById();
+        List<Ticket> GetAllSortedByPriority();
     }
 }

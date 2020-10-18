@@ -74,19 +74,23 @@ namespace GardenGroupUI
         }
 
 
+        // individually queries are better
+        // change it up so that its own sorting queries
         private void comboBoxSortBy_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedOption = comboBoxSortBy.Text;
 
             List<Ticket> sortedList = tickets;
+
+            TicketDAO ticketDAO = new TicketDAO();
             
             switch (selectedOption)
             {
                 case "Default":
-                    sortedList = tickets.OrderByDescending(o => o.Id).ToList();
+                    sortedList = ticketDAO.GetAllSortedById();
                     break;
                 case "Priority":
-                    sortedList = tickets.OrderByDescending(o => o.Priority).ToList();
+                    sortedList = ticketDAO.GetAllSortedByPriority();
                     break;
                 case "Date reported":
                     sortedList = tickets.OrderByDescending(o => o.ReportedBy).ToList();
@@ -101,12 +105,11 @@ namespace GardenGroupUI
                     break;
             }
 
-
-
             listViewTickets.Items.Clear();
 
             tickets = sortedList;
             displayAllTickets();
         }
+
     }
 }

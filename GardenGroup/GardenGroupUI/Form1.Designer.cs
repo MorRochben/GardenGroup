@@ -28,36 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listViewTickets = new System.Windows.Forms.ListView();
             this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderSubject = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPriority = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listViewTickets = new System.Windows.Forms.ListView();
             this.textBoxDetailed = new System.Windows.Forms.TextBox();
             this.labelSort = new System.Windows.Forms.Label();
             this.comboBoxSortBy = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // listViewTickets
-            // 
-            this.listViewTickets.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderID,
-            this.columnHeaderSubject,
-            this.columnHeaderUser,
-            this.columnHeaderDate,
-            this.columnHeaderPriority});
-            this.listViewTickets.FullRowSelect = true;
-            this.listViewTickets.HideSelection = false;
-            this.listViewTickets.Location = new System.Drawing.Point(41, 30);
-            this.listViewTickets.Margin = new System.Windows.Forms.Padding(4);
-            this.listViewTickets.MultiSelect = false;
-            this.listViewTickets.Name = "listViewTickets";
-            this.listViewTickets.Size = new System.Drawing.Size(669, 358);
-            this.listViewTickets.TabIndex = 0;
-            this.listViewTickets.UseCompatibleStateImageBehavior = false;
-            this.listViewTickets.View = System.Windows.Forms.View.Details;
-            this.listViewTickets.SelectedIndexChanged += new System.EventHandler(this.listViewTickets_SelectedIndexChanged);
             // 
             // columnHeaderID
             // 
@@ -84,6 +64,26 @@
             this.columnHeaderPriority.Text = "Priotity";
             this.columnHeaderPriority.Width = 101;
             // 
+            // listViewTickets
+            // 
+            this.listViewTickets.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderID,
+            this.columnHeaderSubject,
+            this.columnHeaderUser,
+            this.columnHeaderDate,
+            this.columnHeaderPriority});
+            this.listViewTickets.FullRowSelect = true;
+            this.listViewTickets.HideSelection = false;
+            this.listViewTickets.Location = new System.Drawing.Point(41, 30);
+            this.listViewTickets.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewTickets.MultiSelect = false;
+            this.listViewTickets.Name = "listViewTickets";
+            this.listViewTickets.Size = new System.Drawing.Size(669, 358);
+            this.listViewTickets.TabIndex = 0;
+            this.listViewTickets.UseCompatibleStateImageBehavior = false;
+            this.listViewTickets.View = System.Windows.Forms.View.Details;
+            this.listViewTickets.SelectedIndexChanged += new System.EventHandler(this.listViewTickets_SelectedIndexChanged);
+            // 
             // textBoxDetailed
             // 
             this.textBoxDetailed.Location = new System.Drawing.Point(751, 147);
@@ -97,7 +97,7 @@
             this.labelSort.AutoSize = true;
             this.labelSort.Location = new System.Drawing.Point(748, 30);
             this.labelSort.Name = "labelSort";
-            this.labelSort.Size = new System.Drawing.Size(50, 16);
+            this.labelSort.Size = new System.Drawing.Size(53, 17);
             this.labelSort.TabIndex = 2;
             this.labelSort.Text = "Sort by";
             // 
@@ -136,12 +136,12 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listViewTickets;
         private System.Windows.Forms.ColumnHeader columnHeaderID;
         private System.Windows.Forms.ColumnHeader columnHeaderSubject;
         private System.Windows.Forms.ColumnHeader columnHeaderUser;
         private System.Windows.Forms.ColumnHeader columnHeaderDate;
         private System.Windows.Forms.ColumnHeader columnHeaderPriority;
+        private System.Windows.Forms.ListView listViewTickets;
         private System.Windows.Forms.TextBox textBoxDetailed;
         private System.Windows.Forms.Label labelSort;
         private System.Windows.Forms.ComboBox comboBoxSortBy;

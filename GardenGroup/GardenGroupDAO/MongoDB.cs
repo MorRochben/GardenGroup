@@ -72,5 +72,23 @@ namespace GardenGroupDAO
             var filter = Builders<T>.Filter.Eq("Id", id);
             collection.DeleteOne(filter);
         }
+
+        //(DB) - Additional functionality - sorting by id and priority
+        public List<T> GetSortedIDDocuments<T>(string table)
+        {
+            var collection = db.GetCollection<T>(table);
+            var sort = Builders<T>.Sort.Descending("Id");
+
+            return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
+        }
+
+        public List<T> GetSortedPriorityDocuments<T>(string table)
+        {
+            var collection = db.GetCollection<T>(table);
+            var sort = Builders<T>.Sort.Descending("Priority");
+
+            return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
+        }
+
     }
 }
