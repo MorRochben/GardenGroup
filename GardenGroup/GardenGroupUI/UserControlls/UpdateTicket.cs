@@ -33,7 +33,14 @@ namespace GardenGroupUI.UserControlls
             cmbIncicentType.SelectedItem = ticket.Type;
             cmbPriority.SelectedItem = ticket.Priority;
             cheSolved.Checked = ticket.IsSolved;
-            dateDeadline.Value = ticket.Deadline;
+            try
+            {
+                dateDeadline.Value = ticket.Deadline;
+            }
+            catch (Exception)
+            {
+                dateDeadline.Value = dateDeadline.MinDate;
+            }
         }
 
         private void btnUpdateTicket_Click(object sender, EventArgs e)
@@ -51,8 +58,8 @@ namespace GardenGroupUI.UserControlls
 
         private void Close()
         {
+            mainForm.displayAllTickets();
             mainForm.Show();
-            mainForm.Controls.Remove(mainForm.UCUpdateTicket);
             mainForm.UCUpdateTicket.Dispose();
             mainForm.UCUpdateTicket = null;
         }
@@ -90,7 +97,7 @@ namespace GardenGroupUI.UserControlls
 
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
-            ticket.Description = txtDescription.Text;
+            ticket.Description = txtDescription.Text.Replace("\n", "\r\n"); ;
         }
     }
 }

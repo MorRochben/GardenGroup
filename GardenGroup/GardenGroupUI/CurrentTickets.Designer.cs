@@ -37,7 +37,7 @@
             this.comboBoxSortBy = new System.Windows.Forms.ComboBox();
             this.labelSort = new System.Windows.Forms.Label();
             this.textBoxDetailed = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpdateTicket = new System.Windows.Forms.Button();
             this.btnNewTicket = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -58,6 +58,7 @@
             this.listViewTickets.TabIndex = 2;
             this.listViewTickets.UseCompatibleStateImageBehavior = false;
             this.listViewTickets.View = System.Windows.Forms.View.Details;
+            this.listViewTickets.SelectedIndexChanged += new System.EventHandler(this.listViewTickets_SelectedIndexChanged);
             // 
             // columnHeaderID
             // 
@@ -122,15 +123,16 @@
             // 
             // button1
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(593, 71);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 59);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Update Ticket";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnUpdateTicket.Enabled = false;
+            this.btnUpdateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateTicket.Location = new System.Drawing.Point(593, 71);
+            this.btnUpdateTicket.Name = "button1";
+            this.btnUpdateTicket.Size = new System.Drawing.Size(136, 59);
+            this.btnUpdateTicket.TabIndex = 8;
+            this.btnUpdateTicket.Text = "Update Ticket";
+            this.btnUpdateTicket.UseVisualStyleBackColor = true;
+            this.btnUpdateTicket.Click += new System.EventHandler(this.btnUpdateTicket_Click);
             // 
             // btnNewTicket
             // 
@@ -148,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnUpdateTicket);
             this.Controls.Add(this.btnNewTicket);
             this.Controls.Add(this.comboBoxSortBy);
             this.Controls.Add(this.labelSort);
@@ -173,7 +175,7 @@
         private System.Windows.Forms.ComboBox comboBoxSortBy;
         private System.Windows.Forms.Label labelSort;
         private System.Windows.Forms.TextBox textBoxDetailed;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdateTicket;
         private System.Windows.Forms.Button btnNewTicket;
     }
 }

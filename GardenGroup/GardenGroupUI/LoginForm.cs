@@ -47,7 +47,7 @@ namespace GardenGroupUI
                     DialogResult result = MessageBox.Show("Login Successfull", "Sucessfully logged in!",
                        MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
-                     if(result == DialogResult.OK)
+                    if(result == DialogResult.OK)
                     {
                         this.Hide();
                         Form1 mainform = new Form1();

@@ -35,11 +35,12 @@ namespace GardenGroupUI.UserControlls
 
         private void btnCreateTicket_Click(object sender, EventArgs e)
         {
+            txtDescription.Text.Replace("\n", "\r\n");
             DateTime reportedDateTime = dateReported.Value.Date + new TimeSpan((int)numReportHour.Value, (int)numReportMinute.Value, 0);
             Ticket ticket = new Ticket(
                 txtSubject.Text,
                 txtDescription.Text,
-                "", // needs to be changed to the ID of the logged in user
+                "5f80617420cbf591a8169575", // needs to be changed to the ID of the logged in user
                 reportedDateTime,
                 dateDeadline.Value.Date,
                 (TypeOfIncident)cmbIncicentType.SelectedIndex,
@@ -52,8 +53,8 @@ namespace GardenGroupUI.UserControlls
 
         private void Close()
         {
+            mainForm.displayAllTickets();
             mainForm.Show();
-            mainForm.Controls.Remove(mainForm.UCNewIncident);
             mainForm.UCNewIncident.Dispose();
             mainForm.UCNewIncident = null;
         }

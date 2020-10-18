@@ -28,18 +28,20 @@ namespace GardenGroupUI
 
         private void Start()
         {
-            TicketDAO ticketDAO = new TicketDAO();
             UserDAO userDAO = new UserDAO();
-
-            tickets = ticketDAO.GetAll().OrderByDescending(o => o.Id).ToList();
             List<User> users = userDAO.GetAll();
 
 
             displayAllTickets();
         }
 
-        private void displayAllTickets()
+        public void displayAllTickets()
         {
+            listViewTickets.Items.Clear();
+            TicketDAO ticketDAO = new TicketDAO();
+
+            tickets = ticketDAO.GetAll().OrderByDescending(o => o.Id).ToList();
+
             foreach (Ticket item in tickets)
             {
                 string[] row = { item.Id, item.Subject, item.ReportedBy, item.ReportedDate.ToString("dd-MM-yyyy"), item.Priority.ToString() };
@@ -50,15 +52,14 @@ namespace GardenGroupUI
 
         private void listViewTickets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Ticket selectedTicket = new Ticket();
-            foreach (Ticket ticket in tickets)
+            btnUpdateTicket.Enabled = listViewTickets.SelectedItems.Count > 0;
+
+            Ticket selectedTicket = GetSelectedTicket();
+
+            if (selectedTicket == null)
             {
-                Console.WriteLine(listViewTickets.SelectedItems);
-
-                if (listViewTickets.SelectedItems.Count > 0)
-                    if (listViewTickets.SelectedItems[0].Text.Equals(ticket.Id))
-                        selectedTicket = ticket;
-
+                textBoxDetailed.Text = "";
+                return;
             }
 
             string ticketString = String.Format(
@@ -74,6 +75,21 @@ namespace GardenGroupUI
                 selectedTicket.Type, selectedTicket.Priority, selectedTicket.IsSolved);
 
             textBoxDetailed.Text = ticketString;
+        }
+
+        private Ticket GetSelectedTicket()
+        {
+            Ticket selectedTicket = null;
+            foreach (Ticket ticket in tickets)
+            {
+                //Console.WriteLine(listViewTickets.SelectedItems);
+
+                if (listViewTickets.SelectedItems.Count > 0)
+                    if (listViewTickets.SelectedItems[0].Text.Equals(ticket.Id))
+                        selectedTicket = ticket;
+
+            }
+            return selectedTicket;
         }
 
 
@@ -124,16 +140,13 @@ namespace GardenGroupUI
             Parent.Controls.Add(UCNewIncident);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnUpdateTicket_Click(object sender, EventArgs e)
         {
-            if (UCNewIncident != null || UCUpdateTicket != null)
+            if (UCNewIncident != null || UCUpdateTicket != null )
                 return;
 
-            //FOR TESTING ONLY
-            GardenGroupLogic.TicketService ts = new GardenGroupLogic.TicketService();
-            GardenGroupModel.Ticket ticket = ts.FindById("5f75feadf05676980529f18c");
-
             this.Hide();
+            Ticket ticket = GetSelectedTicket();
             UCUpdateTicket = new UpdateTicket(this, ticket);
             Parent.Controls.Add(UCUpdateTicket);
         }
