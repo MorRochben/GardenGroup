@@ -22,6 +22,11 @@ namespace GardenGroupLogic
             ticketDAO.Create(ticket);
         }
 
+        public Ticket FindById(string id)
+        {
+            return ticketDAO.FindById(id);
+        }
+
         public void DeleteTicket(string id)
         {
             ticketDAO.Delete(id);

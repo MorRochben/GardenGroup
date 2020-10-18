@@ -13,7 +13,8 @@ namespace GardenGroupUI
 {
     public partial class Form1: Form
     {
-        public NewIncident UCNewIncident;
+        public NewTicket UCNewIncident;
+        public UpdateTicket UCUpdateTicket;
 
         public Form1()
         {
@@ -22,20 +23,32 @@ namespace GardenGroupUI
 
         private void btnNewIncident_Click(object sender, EventArgs e)
         {
-            if (UCNewIncident != null)
+            if (UCNewIncident != null || UCUpdateTicket != null)
                 return;
 
             HideControllsInTab(tabIncidentManagement);
-            UCNewIncident = new NewIncident(this);
+            UCNewIncident = new NewTicket(this);
             UCNewIncident.Size = tabIncidentManagement.Size;
             tabIncidentManagement.Controls.Add(UCNewIncident);
         }
+        private void btnUpdateTicket_Click(object sender, EventArgs e)
+        {
+            if (UCNewIncident != null || UCUpdateTicket != null)
+                return;
+
+            //FOR TESTING ONLY
+            GardenGroupLogic.TicketService ts = new GardenGroupLogic.TicketService();
+            GardenGroupModel.Ticket ticket = ts.FindById("5f75feadf05676980529f18c");
+
+            HideControllsInTab(tabIncidentManagement);
+            UCUpdateTicket = new UpdateTicket(this, ticket);
+            UCUpdateTicket.Size = tabIncidentManagement.Size;
+            tabIncidentManagement.Controls.Add(UCUpdateTicket);
+        }
 
         public void TicketCreationFinished()
-        {            
-            Controls.Remove(UCNewIncident);
-            UCNewIncident.Dispose();
-            UCNewIncident = null;
+        {       
+            
             ShowControllsInTab(tabIncidentManagement);
         }
 
@@ -54,5 +67,7 @@ namespace GardenGroupUI
                 control.Show();
             }
         }
+
+        
     }
 }

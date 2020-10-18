@@ -12,7 +12,7 @@ namespace GardenGroupModel
         public string Id { get; set; }
         public string Subject { get; set; }
         public string Description { get; set; }
-        //[BsonRepresentation(BsonType.ObjectId)]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string ReportedBy { get; set; }
         public DateTime ReportedDate { get; set; }
         public DateTime Deadline { get; set; }

@@ -31,9 +31,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
             this.tabIncidentManagement = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnNewIncident = new System.Windows.Forms.Button();
             this.tabUserManagement = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnUpdateTicket = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabIncidentManagement.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +64,7 @@
             // tabIncidentManagement
             // 
             this.tabIncidentManagement.BackColor = System.Drawing.Color.Transparent;
+            this.tabIncidentManagement.Controls.Add(this.btnUpdateTicket);
             this.tabIncidentManagement.Controls.Add(this.label1);
             this.tabIncidentManagement.Controls.Add(this.btnNewIncident);
             this.tabIncidentManagement.Location = new System.Drawing.Point(4, 25);
@@ -72,9 +74,18 @@
             this.tabIncidentManagement.TabIndex = 0;
             this.tabIncidentManagement.Text = "Incident Management";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(114, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
+            // 
             // btnNewIncident
             // 
-            this.btnNewIncident.Location = new System.Drawing.Point(608, 6);
+            this.btnNewIncident.Location = new System.Drawing.Point(596, 20);
             this.btnNewIncident.Name = "btnNewIncident";
             this.btnNewIncident.Size = new System.Drawing.Size(150, 34);
             this.btnNewIncident.TabIndex = 0;
@@ -92,14 +103,15 @@
             this.tabUserManagement.TabIndex = 1;
             this.tabUserManagement.Text = "User Management";
             // 
-            // label1
+            // btnUpdateTicket
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(114, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.btnUpdateTicket.Location = new System.Drawing.Point(596, 96);
+            this.btnUpdateTicket.Name = "btnUpdateTicket";
+            this.btnUpdateTicket.Size = new System.Drawing.Size(150, 34);
+            this.btnUpdateTicket.TabIndex = 2;
+            this.btnUpdateTicket.Text = "Update Ticket";
+            this.btnUpdateTicket.UseVisualStyleBackColor = true;
+            this.btnUpdateTicket.Click += new System.EventHandler(this.btnUpdateTicket_Click);
             // 
             // Form1
             // 
@@ -125,6 +137,7 @@
         private System.Windows.Forms.TabPage tabUserManagement;
         private System.Windows.Forms.Button btnNewIncident;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnUpdateTicket;
     }
 }
 
