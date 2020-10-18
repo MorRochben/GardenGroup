@@ -44,8 +44,17 @@ namespace GardenGroupUI
                 // TO DO: Show screens depending on the type of user  
                 if (users[index].Password == tb_Password.Text)
                 {
-                    MessageBox.Show("Login Successfull", "Sucessfully logged in!",
+                    DialogResult result = MessageBox.Show("Login Successfull", "Sucessfully logged in!",
                        MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                     if(result == DialogResult.OK)
+                    {
+                        this.Hide();
+                        Form1 mainform = new Form1();
+                        mainform.Closed += (s, args) => this.Close();
+                        mainform.ShowDialog();
+
+                    }
                 }
             }
             else
