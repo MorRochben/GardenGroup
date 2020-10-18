@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GardenGroupUI.UserControlls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -110,6 +111,5 @@ namespace GardenGroupUI
             tickets = sortedList;
             displayAllTickets();
         }
-
     }
 }

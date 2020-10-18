@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace GardenGroupDAO
 
         private MongoDB()
         {
-            var client = new MongoClient("mongodb+srv://gardengroup:cuteparrot@cluster0.oa6at.azure.mongodb.net/test");
+            var client = new MongoClient(ConfigurationManager.ConnectionStrings["GardenGroupDatabase"].ConnectionString);
             db = client.GetDatabase("GardenGroup");
         }
 

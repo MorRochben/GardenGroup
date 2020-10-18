@@ -132,11 +132,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CurrentTickets.resx">
-      <DependentUpon>CurrentTickets.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="UserControlls\NewTicket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlls\NewTicket.Designer.cs">
+      <DependentUpon>NewTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlls\UpdateTicket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlls\UpdateTicket.Designer.cs">
+      <DependentUpon>UpdateTicket.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CurrentTickets.resx">
+      <DependentUpon>CurrentTickets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -151,6 +163,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <EmbeddedResource Include="UserControlls\NewTicket.resx">
+      <DependentUpon>NewTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlls\UpdateTicket.resx">
+      <DependentUpon>UpdateTicket.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -168,6 +186,10 @@
     <ProjectReference Include="..\GardenGroupDAO\GardenGroupDAO.csproj">
       <Project>{07b24fc3-822d-4187-8c08-c2f899f105cf}</Project>
       <Name>GardenGroupDAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GardenGroupLogic\GardenGroupLogic.csproj">
+      <Project>{a523ba19-ea09-4d1e-91c7-ceb4393069db}</Project>
+      <Name>GardenGroupLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\GardenGroupLogic\GardenGroupLogic.csproj">
       <Project>{a523ba19-ea09-4d1e-91c7-ceb4393069db}</Project>

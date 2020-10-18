@@ -97,7 +97,7 @@
             this.labelSort.AutoSize = true;
             this.labelSort.Location = new System.Drawing.Point(748, 30);
             this.labelSort.Name = "labelSort";
-            this.labelSort.Size = new System.Drawing.Size(53, 17);
+            this.labelSort.Size = new System.Drawing.Size(40, 13);
             this.labelSort.TabIndex = 2;
             this.labelSort.Text = "Sort by";
             // 
@@ -113,7 +113,7 @@
             "Solved"});
             this.comboBoxSortBy.Location = new System.Drawing.Point(823, 30);
             this.comboBoxSortBy.Name = "comboBoxSortBy";
-            this.comboBoxSortBy.Size = new System.Drawing.Size(148, 24);
+            this.comboBoxSortBy.Size = new System.Drawing.Size(148, 21);
             this.comboBoxSortBy.TabIndex = 3;
             this.comboBoxSortBy.Text = "Default";
             this.comboBoxSortBy.SelectedIndexChanged += new System.EventHandler(this.comboBoxSortBy_SelectedIndexChanged);

@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GardenGroupModel;
 using GardenGroupDAO;
+using GardenGroupUI.UserControlls;
 
 namespace GardenGroupUI
 {
     public partial class CurrentTickets : UserControl
     {
+        public NewTicket UCNewIncident;
+        public UpdateTicket UCUpdateTicket;
+
         private List<Ticket> tickets;
         public CurrentTickets()
         {
@@ -107,6 +111,28 @@ namespace GardenGroupUI
 
             tickets = sortedList;
             displayAllTickets();
+        }
+
+        private void btnNewTicket_Click(object sender, EventArgs e)
+        {
+            if (UCNewIncident != null || UCUpdateTicket != null)
+                return;
+
+            UCNewIncident = new NewTicket(this);
+            this.Controls.Add(UCNewIncident);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (UCNewIncident != null || UCUpdateTicket != null)
+                return;
+
+            //FOR TESTING ONLY
+            GardenGroupLogic.TicketService ts = new GardenGroupLogic.TicketService();
+            GardenGroupModel.Ticket ticket = ts.FindById("5f75feadf05676980529f18c");
+
+            UCUpdateTicket = new UpdateTicket(this, ticket);
+            this.Controls.Add(UCUpdateTicket);
         }
     }
 }

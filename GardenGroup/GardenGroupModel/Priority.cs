@@ -8,7 +8,7 @@ namespace GardenGroupModel
 {
     public enum Priority
     {
-        Low,
+        Low = 0,
         Normal,
         High
     }
