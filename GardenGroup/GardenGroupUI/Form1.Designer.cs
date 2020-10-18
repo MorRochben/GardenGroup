@@ -82,6 +82,7 @@
             this.listViewTickets.TabIndex = 0;
             this.listViewTickets.UseCompatibleStateImageBehavior = false;
             this.listViewTickets.View = System.Windows.Forms.View.Details;
+            this.listViewTickets.Visible = false;
             this.listViewTickets.SelectedIndexChanged += new System.EventHandler(this.listViewTickets_SelectedIndexChanged);
             // 
             // textBoxDetailed
@@ -91,6 +92,7 @@
             this.textBoxDetailed.Name = "textBoxDetailed";
             this.textBoxDetailed.Size = new System.Drawing.Size(281, 241);
             this.textBoxDetailed.TabIndex = 1;
+            this.textBoxDetailed.Visible = false;
             // 
             // labelSort
             // 
@@ -100,6 +102,7 @@
             this.labelSort.Size = new System.Drawing.Size(40, 13);
             this.labelSort.TabIndex = 2;
             this.labelSort.Text = "Sort by";
+            this.labelSort.Visible = false;
             // 
             // comboBoxSortBy
             // 
@@ -116,6 +119,7 @@
             this.comboBoxSortBy.Size = new System.Drawing.Size(148, 21);
             this.comboBoxSortBy.TabIndex = 3;
             this.comboBoxSortBy.Text = "Default";
+            this.comboBoxSortBy.Visible = false;
             this.comboBoxSortBy.SelectedIndexChanged += new System.EventHandler(this.comboBoxSortBy_SelectedIndexChanged);
             // 
             // Form1
@@ -128,6 +132,7 @@
             this.Controls.Add(this.listViewTickets);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

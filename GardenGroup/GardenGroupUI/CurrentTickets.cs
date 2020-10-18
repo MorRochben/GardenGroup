@@ -22,6 +22,7 @@ namespace GardenGroupUI
         public CurrentTickets()
         {
             InitializeComponent();
+            this.Size = ClientSize;
             Start();
         }
 
@@ -118,8 +119,9 @@ namespace GardenGroupUI
             if (UCNewIncident != null || UCUpdateTicket != null)
                 return;
 
+            this.Hide();
             UCNewIncident = new NewTicket(this);
-            this.Controls.Add(UCNewIncident);
+            Parent.Controls.Add(UCNewIncident);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -131,8 +133,9 @@ namespace GardenGroupUI
             GardenGroupLogic.TicketService ts = new GardenGroupLogic.TicketService();
             GardenGroupModel.Ticket ticket = ts.FindById("5f75feadf05676980529f18c");
 
+            this.Hide();
             UCUpdateTicket = new UpdateTicket(this, ticket);
-            this.Controls.Add(UCUpdateTicket);
+            Parent.Controls.Add(UCUpdateTicket);
         }
     }
 }

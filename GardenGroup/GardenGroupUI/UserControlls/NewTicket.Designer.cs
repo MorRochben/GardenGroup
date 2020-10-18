@@ -288,7 +288,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "NewTicket";
-            this.Size = new System.Drawing.Size(776, 533);
+            this.Size = new System.Drawing.Size(996, 540);
             ((System.ComponentModel.ISupportInitialize)(this.numReportHour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numReportMinute)).EndInit();
             this.ResumeLayout(false);

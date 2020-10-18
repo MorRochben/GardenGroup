@@ -21,7 +21,9 @@ namespace GardenGroupUI
         public Form1()
         {
             InitializeComponent();
-            Start();
+            CurrentTickets currentTickets = new CurrentTickets();
+            this.Controls.Add(currentTickets);
+            //Start();
         }
 
         private void Start()

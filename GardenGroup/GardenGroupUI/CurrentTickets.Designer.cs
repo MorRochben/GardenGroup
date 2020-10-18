@@ -156,7 +156,7 @@
             this.Controls.Add(this.listViewTickets);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CurrentTickets";
-            this.Size = new System.Drawing.Size(909, 465);
+            this.Size = new System.Drawing.Size(1177, 602);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -52,6 +52,7 @@ namespace GardenGroupUI.UserControlls
 
         private void Close()
         {
+            mainForm.Show();
             mainForm.Controls.Remove(mainForm.UCNewIncident);
             mainForm.UCNewIncident.Dispose();
             mainForm.UCNewIncident = null;

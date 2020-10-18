@@ -261,7 +261,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Name = "UpdateTicket";
-            this.Size = new System.Drawing.Size(763, 541);
+            this.Size = new System.Drawing.Size(1055, 537);
             this.ResumeLayout(false);
             this.PerformLayout();
 
