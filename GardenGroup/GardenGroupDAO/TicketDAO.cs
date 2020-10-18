@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace GardenGroupDAO
 {
-    class TicketDAO : BaseDAO, ITicketDAO
+    public class TicketDAO : BaseDAO, ITicketDAO
     {
         private string TABLE_NAME = "Incidents";
         public void Create(Ticket newTicket)
@@ -44,6 +44,18 @@ namespace GardenGroupDAO
         public void Update(string id, Ticket updatedTicket)
         {
             db.UpdateDocument<Ticket>(id, TABLE_NAME, updatedTicket);
+        }
+
+        
+        //(DB) - Additional functionality - sorting by priority
+        public List<Ticket> GetAllSortedById()
+        {
+            return db.GetSortedIDDocuments<Ticket>(TABLE_NAME);
+        }
+
+        public List<Ticket> GetAllSortedByPriority()
+        {
+            return db.GetSortedPriorityDocuments<Ticket>(TABLE_NAME);
         }
     }
 }
