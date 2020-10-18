@@ -28,7 +28,7 @@ namespace GardenGroupDAO
 
         private MongoDB()
         {
-            var client = new MongoClient();
+            var client = new MongoClient("mongodb+srv://gardengroup:cuteparrot@cluster0.oa6at.azure.mongodb.net/test");
             db = client.GetDatabase("GardenGroup");
         }
 
