@@ -11,7 +11,6 @@ using System.Windows.Forms;
 using GardenGroupLogic;
 using GardenGroupModel;
 using System.Web;
-using OpenQA.Selenium.Remote;
 
 namespace GardenGroupUI
 {

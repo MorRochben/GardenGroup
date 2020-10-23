@@ -40,7 +40,11 @@ namespace GardenGroupUI
             listViewTickets.Items.Clear();
             TicketDAO ticketDAO = new TicketDAO();
 
-            tickets = ticketDAO.GetAll().OrderByDescending(o => o.Id).ToList();
+            //tickets = ticketDAO.GetAll().OrderByDescending(o => o.Id).ToList();
+            if(tickets == null)
+            {
+                tickets = ticketDAO.GetAllSortedById();
+            }
 
             foreach (Ticket item in tickets)
             {
@@ -96,6 +100,11 @@ namespace GardenGroupUI
         // individually queries are better
         // change it up so that its own sorting queries
         private void comboBoxSortBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changedListSort();
+        }
+
+        public void changedListSort()
         {
             string selectedOption = comboBoxSortBy.Text;
 

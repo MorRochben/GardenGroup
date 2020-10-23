@@ -48,6 +48,7 @@ namespace GardenGroupUI.UserControlls
             );
             TicketService ticketService = new TicketService();
             ticketService.CreateTicket(ticket);
+            mainForm.changedListSort();
             Close();
         }
 

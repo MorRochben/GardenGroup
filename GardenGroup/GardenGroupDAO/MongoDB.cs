@@ -88,5 +88,29 @@ namespace GardenGroupDAO
 
             return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
         }
+
+        public List<T> GetSortedDateReportedDocuments<T>(string table)
+        {
+            var collection = db.GetCollection<T>(table);
+            var sort = Builders<T>.Sort.Ascending("ReportedDate");
+
+            return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
+        }
+
+        public List<T> GetSortedDeadlineDocuments<T>(string table)
+        {
+            var collection = db.GetCollection<T>(table);
+            var sort = Builders<T>.Sort.Ascending("Deadline");
+
+            return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
+        }
+
+        public List<T> GetSortedSolvedDocuments<T>(string table)
+        {
+            var collection = db.GetCollection<T>(table);
+            var sort = Builders<T>.Sort.Ascending("IsSolved");
+
+            return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
+        }
     }
 }

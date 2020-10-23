@@ -96,11 +96,12 @@
             "Deadline",
             "Solved"});
             this.comboBoxSortBy.Location = new System.Drawing.Point(735, 37);
-            this.comboBoxSortBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxSortBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxSortBy.Name = "comboBoxSortBy";
             this.comboBoxSortBy.Size = new System.Drawing.Size(112, 21);
             this.comboBoxSortBy.TabIndex = 6;
             this.comboBoxSortBy.Text = "Default";
+            this.comboBoxSortBy.SelectedIndexChanged += new System.EventHandler(this.comboBoxSortBy_SelectedIndexChanged);
             // 
             // labelSort
             // 
@@ -115,19 +116,19 @@
             // textBoxDetailed
             // 
             this.textBoxDetailed.Location = new System.Drawing.Point(593, 135);
-            this.textBoxDetailed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxDetailed.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDetailed.Multiline = true;
             this.textBoxDetailed.Name = "textBoxDetailed";
             this.textBoxDetailed.Size = new System.Drawing.Size(281, 290);
             this.textBoxDetailed.TabIndex = 4;
             // 
-            // button1
+            // btnUpdateTicket
             // 
             this.btnUpdateTicket.Enabled = false;
             this.btnUpdateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateTicket.Location = new System.Drawing.Point(593, 71);
-            this.btnUpdateTicket.Name = "button1";
+            this.btnUpdateTicket.Name = "btnUpdateTicket";
             this.btnUpdateTicket.Size = new System.Drawing.Size(136, 59);
             this.btnUpdateTicket.TabIndex = 8;
             this.btnUpdateTicket.Text = "Update Ticket";
@@ -156,7 +157,7 @@
             this.Controls.Add(this.labelSort);
             this.Controls.Add(this.textBoxDetailed);
             this.Controls.Add(this.listViewTickets);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CurrentTickets";
             this.Size = new System.Drawing.Size(1177, 602);
             this.ResumeLayout(false);

@@ -57,5 +57,20 @@ namespace GardenGroupDAO
         {
             return db.GetSortedPriorityDocuments<Ticket>(TABLE_NAME);
         }
+
+        public List<Ticket> GetAllSortedByDateReported()
+        {
+            return db.GetSortedDateReportedDocuments<Ticket>(TABLE_NAME);
+        }
+
+        public List<Ticket> GetAllSortedByDeadline()
+        {
+            return db.GetSortedDeadlineDocuments<Ticket>(TABLE_NAME);
+        }
+
+        public List<Ticket> GetAllSortedBySolved()
+        {
+            return db.GetSortedSolvedDocuments<Ticket>(TABLE_NAME);
+        }
     }
 }
