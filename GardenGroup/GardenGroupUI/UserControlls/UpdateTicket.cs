@@ -12,10 +12,11 @@ using GardenGroupLogic;
 
 namespace GardenGroupUI.UserControlls
 {
-    public partial class UpdateTicket : UserControl
+    public partial class UpdateTicket : UserControl, UserSelect
     {
         private Ticket ticket;
         private CurrentTickets mainForm;
+        private User reportedByUser;
 
         public UpdateTicket(CurrentTickets mainForm, Ticket ticket)
         {
@@ -25,10 +26,19 @@ namespace GardenGroupUI.UserControlls
             cmbIncicentType.DataSource = Enum.GetValues(typeof(TypeOfIncident));
             cmbPriority.DataSource = Enum.GetValues(typeof(Priority));
             lblDeadLineError.Hide();
+            try
+            {
+                reportedByUser = new UserService().GetById(ticket.ReportedBy);
+                lblUsername.Text = reportedByUser.FirstName + " " + reportedByUser.LastName;
+            }
+            catch (Exception)
+            {
+                reportedByUser = null;
+                lblUsername.Text = "deleted user";
+            }
 
             txtSubject.Text = ticket.Subject;
             txtDescription.Text = ticket.Description;
-            lblUsername.Text = ticket.ReportedBy;
             lblReportDate.Text = ticket.ReportedDate.ToString("dd/MM/yyyy H:mm");
             cmbIncicentType.SelectedItem = ticket.Type;
             cmbPriority.SelectedItem = ticket.Priority;
@@ -41,6 +51,21 @@ namespace GardenGroupUI.UserControlls
             {
                 dateDeadline.Value = dateDeadline.MinDate;
             }
+
+        }
+
+        public void SetUser(User user)
+        {
+            lblUsername.Text = user.FirstName + " " + user.LastName;
+            ticket.ReportedBy = user.Id;
+            mainForm.Show();
+            BringToFront();
+        }
+
+        public void SelectCancelled()
+        {
+            mainForm.Show();
+            BringToFront();
         }
 
         private void btnUpdateTicket_Click(object sender, EventArgs e)
@@ -78,27 +103,50 @@ namespace GardenGroupUI.UserControlls
 
         private void txtSubject_TextChanged(object sender, EventArgs e)
         {
+            if (txtSubject == null)
+                return;
             ticket.Subject = txtSubject.Text;
         }
 
         private void cmbIncicentType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbIncicentType == null)
+                return;
+
             ticket.Type = (TypeOfIncident)cmbIncicentType.SelectedIndex;
+
         }
 
         private void cmbPriority_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbPriority == null)
+                return;
+
             ticket.Priority = (Priority)cmbPriority.SelectedIndex;
         }
 
         private void cheSolved_CheckedChanged(object sender, EventArgs e)
         {
+            if (cheSolved == null)
+                return;
             ticket.IsSolved = cheSolved.Checked;
         }
 
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
+            if (txtDescription == null)
+                return;
             ticket.Description = txtDescription.Text.Replace("\n", "\r\n"); ;
         }
+
+        private void btnChangeUser_Click(object sender, EventArgs e)
+        {
+            UserSelection UCUS = new UserSelection(this);
+            mainForm.Parent.Controls.Add(UCUS);
+            mainForm.Hide();
+            UCUS.BringToFront();
+        }
+
+
     }
 }

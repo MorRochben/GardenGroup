@@ -12,9 +12,10 @@ using GardenGroupLogic;
 
 namespace GardenGroupUI.UserControlls
 {
-    public partial class NewTicket : UserControl
+    public partial class NewTicket : UserControl, UserSelect
     {
-        CurrentTickets mainForm;
+        private CurrentTickets mainForm;
+        private User reportedByUser;
 
         public NewTicket(CurrentTickets mainForm)
         {
@@ -25,6 +26,7 @@ namespace GardenGroupUI.UserControlls
             numReportHour.Value = dateReported.Value.Hour;
             numReportMinute.Value = dateReported.Value.Minute;
             dateDeadline.Value = DateTime.Now;
+            lblUserSelectError.Hide();
             lblDeadLineError.Hide();
         }
 
@@ -35,12 +37,20 @@ namespace GardenGroupUI.UserControlls
 
         private void btnCreateTicket_Click(object sender, EventArgs e)
         {
+            if(reportedByUser == null)
+            {
+                lblUserSelectError.Show();
+                return;
+            }
+            if (dateDeadline.Value.Date < dateReported.Value.Date)
+                return;
+
             txtDescription.Text.Replace("\n", "\r\n");
             DateTime reportedDateTime = dateReported.Value.Date + new TimeSpan((int)numReportHour.Value, (int)numReportMinute.Value, 0);
             Ticket ticket = new Ticket(
                 txtSubject.Text,
                 txtDescription.Text,
-                "5f80617420cbf591a8169575", // needs to be changed to the ID of the logged in user
+                reportedByUser.Id,
                 reportedDateTime,
                 dateDeadline.Value.Date,
                 (TypeOfIncident)cmbIncicentType.SelectedIndex,
@@ -58,6 +68,12 @@ namespace GardenGroupUI.UserControlls
             mainForm.Show();
             mainForm.UCNewIncident.Dispose();
             mainForm.UCNewIncident = null;
+        }
+
+        public void SelectCancelled()
+        {
+            mainForm.Show();
+            BringToFront();
         }
 
         private void numReportHour_ValueChanged(object sender, EventArgs e)
@@ -92,5 +108,20 @@ namespace GardenGroupUI.UserControlls
                 lblDeadLineError.Hide();
         }
 
+        public void SetUser(User user)
+        {
+            reportedByUser = user;
+            lblUsername.Text = user.FirstName + " " + user.LastName;
+            mainForm.Show();
+            BringToFront();
+        }
+
+        private void btnChangeUser_Click(object sender, EventArgs e)
+        {
+            UserSelection UCUS = new UserSelection(this);
+            mainForm.Parent.Controls.Add(UCUS);
+            mainForm.Hide();
+            UCUS.BringToFront();
+        }
     }
 }

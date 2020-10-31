@@ -112,10 +112,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CurrentTickets.cs">
+    <Compile Include="UserControlls\CurrentTickets.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CurrentTickets.Designer.cs">
+    <Compile Include="UserControlls\CurrentTickets.Designer.cs">
       <DependentUpon>CurrentTickets.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -144,10 +144,17 @@
     <Compile Include="UserControlls\UpdateTicket.Designer.cs">
       <DependentUpon>UpdateTicket.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlls\UserSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlls\UserSelection.Designer.cs">
+      <DependentUpon>UserSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserSelect.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CurrentTickets.resx">
+    <EmbeddedResource Include="UserControlls\CurrentTickets.resx">
       <DependentUpon>CurrentTickets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
@@ -162,6 +169,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControlls\UserSelection.resx">
+      <DependentUpon>UserSelection.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <EmbeddedResource Include="UserControlls\NewTicket.resx">
       <DependentUpon>NewTicket.cs</DependentUpon>
