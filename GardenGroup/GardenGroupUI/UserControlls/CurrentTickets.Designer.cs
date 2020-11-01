@@ -39,6 +39,7 @@
             this.textBoxDetailed = new System.Windows.Forms.TextBox();
             this.btnUpdateTicket = new System.Windows.Forms.Button();
             this.btnNewTicket = new System.Windows.Forms.Button();
+            this.btnDeleteTicket = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewTickets
@@ -147,10 +148,23 @@
             this.btnNewTicket.UseVisualStyleBackColor = true;
             this.btnNewTicket.Click += new System.EventHandler(this.btnNewTicket_Click);
             // 
+            // btnDeleteTicket
+            // 
+            this.btnDeleteTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteTicket.Location = new System.Drawing.Point(747, 430);
+            this.btnDeleteTicket.Name = "btnDeleteTicket";
+            this.btnDeleteTicket.Size = new System.Drawing.Size(127, 46);
+            this.btnDeleteTicket.TabIndex = 9;
+            this.btnDeleteTicket.Text = "Delete Ticket";
+            this.btnDeleteTicket.UseVisualStyleBackColor = true;
+            this.btnDeleteTicket.Click += new System.EventHandler(this.btnDeleteTicket_Click);
+            // 
             // CurrentTickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnDeleteTicket);
             this.Controls.Add(this.btnUpdateTicket);
             this.Controls.Add(this.btnNewTicket);
             this.Controls.Add(this.comboBoxSortBy);
@@ -178,5 +192,6 @@
         private System.Windows.Forms.TextBox textBoxDetailed;
         private System.Windows.Forms.Button btnUpdateTicket;
         private System.Windows.Forms.Button btnNewTicket;
+        private System.Windows.Forms.Button btnDeleteTicket;
     }
 }

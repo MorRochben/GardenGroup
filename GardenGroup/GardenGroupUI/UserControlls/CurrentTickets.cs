@@ -15,6 +15,7 @@ namespace GardenGroupUI
 {
     public partial class CurrentTickets : UserControl
     {
+        TicketDAO ticketDAO;
         public NewTicket UCNewIncident;
         public UpdateTicket UCUpdateTicket;
 
@@ -28,6 +29,7 @@ namespace GardenGroupUI
 
         private void Start()
         {
+            ticketDAO = new TicketDAO();
             UserDAO userDAO = new UserDAO();
             List<User> users = userDAO.GetAll();
 
@@ -38,7 +40,6 @@ namespace GardenGroupUI
         public void displayAllTickets()
         {
             listViewTickets.Items.Clear();
-            TicketDAO ticketDAO = new TicketDAO();
 
             //tickets = ticketDAO.GetAll().OrderByDescending(o => o.Id).ToList();
             if(tickets == null)
@@ -110,8 +111,6 @@ namespace GardenGroupUI
 
             List<Ticket> sortedList = tickets;
 
-            TicketDAO ticketDAO = new TicketDAO();
-
             switch (selectedOption)
             {
                 case "Default":
@@ -158,6 +157,14 @@ namespace GardenGroupUI
             Ticket ticket = GetSelectedTicket();
             UCUpdateTicket = new UpdateTicket(this, ticket);
             Parent.Controls.Add(UCUpdateTicket);
+        }
+
+        private void btnDeleteTicket_Click(object sender, EventArgs e)
+        {
+            Ticket ticket = GetSelectedTicket();
+            ticketDAO.Delete(ticket.Id);
+            tickets = null;
+            displayAllTickets();
         }
     }
 }
