@@ -171,14 +171,16 @@
             // 
             // btnDeleteTicket
             // 
+            this.btnDeleteTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnDeleteTicket.Enabled = false;
             this.btnDeleteTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteTicket.Location = new System.Drawing.Point(747, 430);
+            this.btnDeleteTicket.Location = new System.Drawing.Point(966, 493);
             this.btnDeleteTicket.Name = "btnDeleteTicket";
-            this.btnDeleteTicket.Size = new System.Drawing.Size(127, 46);
-            this.btnDeleteTicket.TabIndex = 9;
+            this.btnDeleteTicket.Size = new System.Drawing.Size(152, 51);
+            this.btnDeleteTicket.TabIndex = 10;
             this.btnDeleteTicket.Text = "Delete Ticket";
-            this.btnDeleteTicket.UseVisualStyleBackColor = true;
+            this.btnDeleteTicket.UseVisualStyleBackColor = false;
             this.btnDeleteTicket.Click += new System.EventHandler(this.btnDeleteTicket_Click);
             // 
             // CurrentTickets
@@ -186,8 +188,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.Controls.Add(this.label_ticketList);
             this.Controls.Add(this.btnDeleteTicket);
+            this.Controls.Add(this.label_ticketList);
             this.Controls.Add(this.btnUpdateTicket);
             this.Controls.Add(this.btnNewTicket);
             this.Controls.Add(this.comboBoxSortBy);

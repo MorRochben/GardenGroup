@@ -15,7 +15,6 @@ namespace GardenGroupUI
 {
     public partial class CurrentTickets : UserControl
     {
-        TicketDAO ticketDAO;
         public NewTicket UCNewIncident;
         public UpdateTicket UCUpdateTicket;
 
@@ -153,6 +152,10 @@ namespace GardenGroupUI
         private void btnDeleteTicket_Click(object sender, EventArgs e)
         {
             Ticket ticket = GetSelectedTicket();
+
+            if (ticket == null)
+                return;
+
             ticketService.DeleteTicket(ticket.Id);
             tickets = null;
             displayAllTickets();
