@@ -17,5 +17,10 @@ namespace GardenGroupLogic
         {
             return user_DAO.GetAll() ;
         }
+
+        public User GetById(string id)
+        {
+            return user_DAO.FindById(id);
+        }
     }
 }

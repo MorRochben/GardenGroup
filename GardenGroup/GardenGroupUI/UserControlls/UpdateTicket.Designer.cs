@@ -46,6 +46,7 @@
             this.cheSolved = new System.Windows.Forms.CheckBox();
             this.btnUpdateTicket = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnChangeUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label5
@@ -73,7 +74,7 @@
             this.txtSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSubject.Location = new System.Drawing.Point(62, 50);
             this.txtSubject.Name = "txtSubject";
-            this.txtSubject.Size = new System.Drawing.Size(361, 24);
+            this.txtSubject.Size = new System.Drawing.Size(411, 24);
             this.txtSubject.TabIndex = 13;
             this.txtSubject.TextChanged += new System.EventHandler(this.txtSubject_TextChanged);
             // 
@@ -237,11 +238,25 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnChangeUser
+            // 
+            this.btnChangeUser.BackColor = System.Drawing.SystemColors.Control;
+            this.btnChangeUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeUser.Location = new System.Drawing.Point(368, 80);
+            this.btnChangeUser.Name = "btnChangeUser";
+            this.btnChangeUser.Size = new System.Drawing.Size(105, 31);
+            this.btnChangeUser.TabIndex = 31;
+            this.btnChangeUser.Text = "change user";
+            this.btnChangeUser.UseVisualStyleBackColor = false;
+            this.btnChangeUser.Click += new System.EventHandler(this.btnChangeUser_Click);
+            // 
             // UpdateTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
+            this.Controls.Add(this.btnChangeUser);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdateTicket);
             this.Controls.Add(this.cheSolved);
@@ -287,5 +302,6 @@
         private System.Windows.Forms.CheckBox cheSolved;
         private System.Windows.Forms.Button btnUpdateTicket;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnChangeUser;
     }
 }
