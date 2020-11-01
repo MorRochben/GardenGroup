@@ -2,6 +2,8 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Mail;
 
 namespace GardenGroupDAO
 {
@@ -46,6 +48,38 @@ namespace GardenGroupDAO
         public void Update(string id, User user)
         {
             db.UpdateDocument<User>(id, TABLE_NAME, user);
+        }
+        
+        public void sendEmail(string email, string tempPass)
+        {
+            var fromAddress = new MailAddress("nosqltestmail@gmail.com", "Admin");
+            var toAddress = new MailAddress(email);
+            const string fromPassword = "random@123";
+            const string subject = "Password reset request.";
+            string body = "Here is a temporary password for you to login: " + tempPass + ".Make sure to change your password when you log in.Ignore this email if you did not request a reset of password or if you do not know the reason of this email.";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+            using (var message = new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body = body
+            })
+            {
+                smtp.Send(message);
+            }
+        }
+        public bool resetPass(string searchValue, string updateValue)
+        {
+            var result = db.UpdateDocumentbyString("Users", searchValue, "email", updateValue, "password");
+            return result;
         }
     }
 }

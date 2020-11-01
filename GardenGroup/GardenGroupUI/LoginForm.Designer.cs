@@ -110,6 +110,7 @@
             this.ll_forgotdetails.TabIndex = 7;
             this.ll_forgotdetails.TabStop = true;
             this.ll_forgotdetails.Text = "Forgot Login Details";
+            this.ll_forgotdetails.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_forgotdetails_LinkClicked);
             // 
             // LoginForm
             // 
