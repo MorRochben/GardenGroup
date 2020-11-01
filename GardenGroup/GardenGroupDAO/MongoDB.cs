@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace GardenGroupDAO
 
         private MongoDB()
         {
-            var client = new MongoClient("mongodb+srv://gardengroup:cuteparrot@cluster0.oa6at.azure.mongodb.net/test");
+            var client = new MongoClient(ConfigurationManager.ConnectionStrings["GardenGroupDatabase"].ConnectionString);
             db = client.GetDatabase("GardenGroup");
         }
 
@@ -71,28 +72,45 @@ namespace GardenGroupDAO
             collection.DeleteOne(filter);
         }
 
-        public bool UpdateDocumentbyString(string collectionName, string searchValue, string attribute, string updateValue, string column)
+        //(DB) - Additional functionality - sorting by id and priority
+        public List<T> GetSortedIDDocuments<T>(string table)
         {
-            //select which document to update
-            var collection = db.GetCollection<BsonDocument>(collectionName);
-            var filter = Builders<BsonDocument>.Filter.Eq(attribute, searchValue);
+            var collection = db.GetCollection<T>(table);
+            var sort = Builders<T>.Sort.Descending("Id");
 
-            //select what value to change in that document
-            var update = Builders<BsonDocument>.Update.Set(column, updateValue);
-            var result = collection.UpdateOne(filter, update);
-
-            bool checkResult;
-
-            if (result.MatchedCount == 1 && result.ModifiedCount == 1)
-            {
-                checkResult = true;
-            }
-            else
-            {
-                checkResult = false;
-            }
-            return checkResult;
+            return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
         }
 
+        public List<T> GetSortedPriorityDocuments<T>(string table)
+        {
+            var collection = db.GetCollection<T>(table);
+            var sort = Builders<T>.Sort.Descending("Priority");
+
+            return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
+        }
+
+        public List<T> GetSortedDateReportedDocuments<T>(string table)
+        {
+            var collection = db.GetCollection<T>(table);
+            var sort = Builders<T>.Sort.Ascending("ReportedDate");
+
+            return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
+        }
+
+        public List<T> GetSortedDeadlineDocuments<T>(string table)
+        {
+            var collection = db.GetCollection<T>(table);
+            var sort = Builders<T>.Sort.Ascending("Deadline");
+
+            return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
+        }
+
+        public List<T> GetSortedSolvedDocuments<T>(string table)
+        {
+            var collection = db.GetCollection<T>(table);
+            var sort = Builders<T>.Sort.Ascending("IsSolved");
+
+            return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
+        }
     }
 }

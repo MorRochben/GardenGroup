@@ -11,7 +11,6 @@ using System.Windows.Forms;
 using GardenGroupLogic;
 using GardenGroupModel;
 using System.Web;
-using OpenQA.Selenium.Remote;
 
 namespace GardenGroupUI
 {
@@ -31,28 +30,32 @@ namespace GardenGroupUI
 
             RememberCredentials();
 
-            //users = userService.GetAll();
-            //int index = users.FindIndex(user => user.Email == tb_Username.Text);
+            users = userService.GetAll();
+            int index = users.FindIndex(user => user.Email == tb_Username.Text);
 
             // Q: Probably this should be in the try catch clause?
             if (tb_Username.Text == null || tb_Password.Text == null)
             {
                 MessageBox.Show("Please enter a username and password.");
             }
-            else if(tb_Username.Text == "williamkMckay.89@gmail.com" && tb_Password.Text == "william@89")
+            else if (index >= 0)
             {
-                MessageBox.Show("Login Successfull", "Sucessfully logged in!",
-                      MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                // TO DO: Show screens depending on the type of user  
+                if (users[index].Password == tb_Password.Text)
+                {
+                    DialogResult result = MessageBox.Show("Login Successfull", "Sucessfully logged in!",
+                       MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                    if(result == DialogResult.OK)
+                    {
+                        this.Hide();
+                        Form1 mainform = new Form1();
+                        mainform.Closed += (s, args) => this.Close();
+                        mainform.ShowDialog();
+
+                    }
+                }
             }
-            //else if (index >= 0)
-            //{
-            //    // TO DO: Show screens depending on the type of user  
-            //    if (users[index].Password == tb_Password.Text)
-            //    {
-            //        MessageBox.Show("Login Successfull", "Sucessfully logged in!",
-            //           MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            //    }
-            //}
             else
             {
                 MessageBox.Show("Login unsuccessfull", "Can't login! Incorrect credentials! ",
@@ -83,12 +86,6 @@ namespace GardenGroupUI
                 Properties.Settings.Default.Password = "";
                 Properties.Settings.Default.Save();
             }
-        }
-
-        private void ll_forgotdetails_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            ForgotPassForm forgotPassForm = new ForgotPassForm(tb_Username.Text);
-            forgotPassForm.Show();
         }
     }
 }
