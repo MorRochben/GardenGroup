@@ -49,7 +49,7 @@ namespace GardenGroupUI
                     if(result == DialogResult.OK)
                     {
                         this.Hide();
-                        Form1 mainform = new Form1();
+                        MainForm mainform = new MainForm();
                         mainform.Closed += (s, args) => this.Close();
                         mainform.ShowDialog();
 

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GardenGroupModel;
-using GardenGroupDAO;
+using GardenGroupLogic;
 using GardenGroupUI.UserControlls;
 
 namespace GardenGroupUI
@@ -20,20 +20,18 @@ namespace GardenGroupUI
         public UpdateTicket UCUpdateTicket;
 
         private List<Ticket> tickets;
+        private TicketService ticketService;
+
         public CurrentTickets()
         {
             InitializeComponent();
             this.Size = ClientSize;
+            ticketService = new TicketService();
             Start();
         }
 
         private void Start()
         {
-            ticketDAO = new TicketDAO();
-            UserDAO userDAO = new UserDAO();
-            List<User> users = userDAO.GetAll();
-
-
             displayAllTickets();
         }
 
@@ -41,10 +39,9 @@ namespace GardenGroupUI
         {
             listViewTickets.Items.Clear();
 
-            //tickets = ticketDAO.GetAll().OrderByDescending(o => o.Id).ToList();
             if(tickets == null)
             {
-                tickets = ticketDAO.GetAllSortedById();
+                tickets = ticketService.GetAllSortedById();
             }
 
             foreach (Ticket item in tickets)
@@ -67,19 +64,18 @@ namespace GardenGroupUI
                 return;
             }
 
-            string ticketString = String.Format(
-                "Subject: {0} " + Environment.NewLine +
-                "Description: {1} " + Environment.NewLine +
-                "Reported by: {2} " + Environment.NewLine +
-                "Reported date: {3} " + Environment.NewLine +
-                "Deadline: {4} " + Environment.NewLine +
-                "Type of incident: {5} " + Environment.NewLine +
-                "Priority level: {6} " + Environment.NewLine +
-                "Is the incident solved? {7}",
-                selectedTicket.Subject, selectedTicket.Description, selectedTicket.ReportedBy, selectedTicket.ReportedDate, selectedTicket.Deadline,
-                selectedTicket.Type, selectedTicket.Priority, selectedTicket.IsSolved);
+            textBoxDetailed.Lines = new string[]
+            {
+                String.Format("Subject: \t\t{0}", selectedTicket.Subject),
+                String.Format("Description: {0, -25}", selectedTicket.Description),
+                String.Format("Reported by: \t{0, -25}", selectedTicket.ReportedBy),
+                String.Format("Reported date: \t{0, -25}", selectedTicket.ReportedDate),
+                String.Format("Deadline: \t\t{0, -25}", selectedTicket.Deadline),
+                String.Format("Incident type: \t{0, -25}", selectedTicket.Type),
+                String.Format("Priority: \t\t{0, -25}", selectedTicket.Priority),
+                String.Format("Solved incident? \t{0, -25}", selectedTicket.IsSolved),
+            };
 
-            textBoxDetailed.Text = ticketString;
         }
 
         private Ticket GetSelectedTicket()
@@ -87,8 +83,6 @@ namespace GardenGroupUI
             Ticket selectedTicket = null;
             foreach (Ticket ticket in tickets)
             {
-                //Console.WriteLine(listViewTickets.SelectedItems);
-
                 if (listViewTickets.SelectedItems.Count > 0)
                     if (listViewTickets.SelectedItems[0].Text.Equals(ticket.Id))
                         selectedTicket = ticket;
@@ -97,9 +91,6 @@ namespace GardenGroupUI
             return selectedTicket;
         }
 
-
-        // individually queries are better
-        // change it up so that its own sorting queries
         private void comboBoxSortBy_SelectedIndexChanged(object sender, EventArgs e)
         {
             changedListSort();
@@ -114,19 +105,19 @@ namespace GardenGroupUI
             switch (selectedOption)
             {
                 case "Default":
-                    sortedList = ticketDAO.GetAllSortedById();
+                    sortedList = ticketService.GetAllSortedById();
                     break;
                 case "Priority":
-                    sortedList = ticketDAO.GetAllSortedByPriority();
+                    sortedList = ticketService.GetAllSortedByPriority();
                     break;
                 case "Date reported":
-                    sortedList = tickets.OrderByDescending(o => o.ReportedBy).ToList();
+                    sortedList = ticketService.GetAllSortedByDateReported();
                     break;
                 case "Deadline":
-                    sortedList = tickets.OrderByDescending(o => o.Deadline).ToList();
+                    sortedList = ticketService.GetAllSortedByDeadline();
                     break;
                 case "Solved":
-                    sortedList = tickets.OrderByDescending(o => o.IsSolved).ToList();
+                    sortedList = ticketService.GetAllSortedBySolved();
                     break;
                 default:
                     break;
@@ -162,7 +153,7 @@ namespace GardenGroupUI
         private void btnDeleteTicket_Click(object sender, EventArgs e)
         {
             Ticket ticket = GetSelectedTicket();
-            ticketDAO.Delete(ticket.Id);
+            ticketService.DeleteTicket(ticket.Id);
             tickets = null;
             displayAllTickets();
         }
