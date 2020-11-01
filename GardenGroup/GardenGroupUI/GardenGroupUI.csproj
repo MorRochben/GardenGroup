@@ -118,11 +118,11 @@
     <Compile Include="CurrentTickets.Designer.cs">
       <DependentUpon>CurrentTickets.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -144,8 +144,8 @@
     <Compile Include="UserControlls\UpdateTicket.Designer.cs">
       <DependentUpon>UpdateTicket.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CurrentTickets.resx">
       <DependentUpon>CurrentTickets.cs</DependentUpon>
@@ -183,10 +183,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GardenGroupDAO\GardenGroupDAO.csproj">
-      <Project>{07b24fc3-822d-4187-8c08-c2f899f105cf}</Project>
-      <Name>GardenGroupDAO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GardenGroupLogic\GardenGroupLogic.csproj">
       <Project>{a523ba19-ea09-4d1e-91c7-ceb4393069db}</Project>
       <Name>GardenGroupLogic</Name>

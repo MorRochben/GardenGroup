@@ -84,9 +84,12 @@ namespace GardenGroupDAO
         public List<T> GetSortedPriorityDocuments<T>(string table)
         {
             var collection = db.GetCollection<T>(table);
-            var sort = Builders<T>.Sort.Descending("Priority");
+            var pSort = Builders<T>.Sort.Descending("Priority");
+            var rSort = Builders<T>.Sort.Descending("ReportedDate");
 
-            return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
+            //Better way?
+            //First the reportedDate sort, then priotrity sort --> cause the priority is the most important
+            return collection.Find<T>(new BsonDocument()).Sort(rSort).Sort(pSort).ToList();
         }
 
         public List<T> GetSortedDateReportedDocuments<T>(string table)

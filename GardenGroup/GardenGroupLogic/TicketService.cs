@@ -44,5 +44,31 @@ namespace GardenGroupLogic
             ticket.Id = id;
             UpdateTicket(ticket);
         }
+
+        //(DB) - Additional functionality - sorting by priority
+        public List<Ticket> GetAllSortedById()
+        {
+            return ticketDAO.GetAllSortedById();
+        }
+
+        public List<Ticket> GetAllSortedByPriority()
+        {
+            return ticketDAO.GetAllSortedByPriority();
+        }
+
+        public List<Ticket> GetAllSortedByDateReported()
+        {
+            return ticketDAO.GetAllSortedByDateReported();
+        }
+
+        public List<Ticket> GetAllSortedByDeadline()
+        {
+            return ticketDAO.GetAllSortedByDeadline();
+        }
+
+        public List<Ticket> GetAllSortedBySolved()
+        {
+            return ticketDAO.GetAllSortedBySolved();
+        }
     }
 }
