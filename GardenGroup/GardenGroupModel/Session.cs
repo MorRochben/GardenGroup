@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GardenGroupModel
 {
-    class Session
+    public class Session
     {
         private static Session instance;
         public static Session Instance 

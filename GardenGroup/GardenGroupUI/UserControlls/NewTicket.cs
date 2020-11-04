@@ -28,6 +28,14 @@ namespace GardenGroupUI.UserControlls
             dateDeadline.Value = DateTime.Now;
             lblUserSelectError.Hide();
             lblDeadLineError.Hide();
+
+            if(Session.Instance.LoggedInUser.TypeOfUser == TypeOfUser.Employee)
+            {
+                btnChangeUser.Enabled = false;
+                btnChangeUser.Visible = false;
+
+                SetUser(Session.Instance.LoggedInUser);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -60,6 +68,14 @@ namespace GardenGroupUI.UserControlls
             ticketService.CreateTicket(ticket);
             mainForm.changedListSort();
             Close();
+        }
+
+        public void SetUser(User user)
+        {
+            reportedByUser = user;
+            lblUsername.Text = user.FirstName + " " + user.LastName;
+            mainForm.Show();
+            BringToFront();
         }
 
         private void Close()
@@ -108,13 +124,7 @@ namespace GardenGroupUI.UserControlls
                 lblDeadLineError.Hide();
         }
 
-        public void SetUser(User user)
-        {
-            reportedByUser = user;
-            lblUsername.Text = user.FirstName + " " + user.LastName;
-            mainForm.Show();
-            BringToFront();
-        }
+        
 
         private void btnChangeUser_Click(object sender, EventArgs e)
         {

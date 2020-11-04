@@ -52,6 +52,11 @@ namespace GardenGroupUI.UserControlls
                 dateDeadline.Value = dateDeadline.MinDate;
             }
 
+            if (Session.Instance.LoggedInUser.TypeOfUser == TypeOfUser.Employee)
+            {
+                btnChangeUser.Enabled = false;
+                btnChangeUser.Visible = false;
+            }
         }
 
         public void SetUser(User user)

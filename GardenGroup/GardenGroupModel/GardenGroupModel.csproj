@@ -111,6 +111,7 @@
     <Compile Include="TypeOfIncident.cs" />
     <Compile Include="TypeOfUser.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserSelect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

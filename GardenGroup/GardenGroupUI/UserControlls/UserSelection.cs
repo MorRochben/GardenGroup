@@ -18,7 +18,7 @@ namespace GardenGroupUI.UserControlls
         private UserService userService = new UserService();
         private UserSelect mainWindowInterface;
 
-        //This
+        //This is the screen for changing the assigned user which is part of the extra functionality done by Sjoerd
         public UserSelection(UserSelect mainWindowInterface)
         {
             InitializeComponent();
