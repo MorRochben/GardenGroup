@@ -45,6 +45,17 @@ namespace GardenGroupLogic
             UpdateTicket(ticket);
         }
 
+        //(DB)
+        public List<Ticket> GetFromUserSortedById(User user)
+        {
+            return ticketDAO.GetUsersTicketsSortedByID(user);
+        }
+        public List<Ticket> GetFromUserSortedByPriority(User user)
+        {
+            return ticketDAO.GetUsersTicketsSortedByPriority(user);
+        }
+
+
         //(DB) - Additional functionality - sorting by priority
         public List<Ticket> GetAllSortedById()
         {

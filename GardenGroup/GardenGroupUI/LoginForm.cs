@@ -48,6 +48,8 @@ namespace GardenGroupUI
 
                     if(result == DialogResult.OK)
                     {
+                        Session.Instance.LoggedInUser = users[index];
+
                         this.Hide();
                         MainForm mainform = new MainForm();
                         mainform.Closed += (s, args) => this.Close();

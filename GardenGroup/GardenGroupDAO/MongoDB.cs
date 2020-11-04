@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using GardenGroupModel;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace GardenGroupDAO
 {
@@ -71,6 +73,28 @@ namespace GardenGroupDAO
             var filter = Builders<T>.Filter.Eq("Id", id);
             collection.DeleteOne(filter);
         }
+
+        // (DB)
+
+        public List<T> GetUsersTicketsSortedByIDDocuments<T>(string table, User user)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("ReportedBy", user.Id);
+            var sort = Builders<T>.Sort.Descending("Id");
+
+            return collection.Find<T>(filter).Sort(sort).ToList();
+        }
+
+        public List<T> GetUsersTicketsSortedByPriorityDocuments<T>(string table, User user)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("ReportedBy", user.Id);
+            var pSort = Builders<T>.Sort.Descending("Priority");
+            var rSort = Builders<T>.Sort.Descending("ReportedDate");
+
+            return collection.Find<T>(filter).Sort(rSort).Sort(pSort).ToList();
+        }
+
 
         //(DB) - Additional functionality - sorting by id and priority
         public List<T> GetSortedIDDocuments<T>(string table)

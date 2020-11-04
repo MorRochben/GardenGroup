@@ -21,6 +21,8 @@ namespace GardenGroupUI
         private List<Ticket> tickets;
         private TicketService ticketService;
 
+        private User loggedInUser;
+
         public CurrentTickets()
         {
             InitializeComponent();
@@ -31,6 +33,17 @@ namespace GardenGroupUI
 
         private void Start()
         {
+            loggedInUser = Session.Instance.LoggedInUser;
+
+            if(loggedInUser.TypeOfUser.Equals(TypeOfUser.EndUser))
+            {
+                btnUpdateTicket.Enabled = false;
+                btnUpdateTicket.Visible = false;
+
+                btnDeleteTicket.Enabled = false;
+                btnDeleteTicket.Visible = false;
+            }
+
             displayAllTickets();
         }
 
@@ -40,7 +53,10 @@ namespace GardenGroupUI
 
             if(tickets == null)
             {
-                tickets = ticketService.GetAllSortedById();
+                if (loggedInUser.TypeOfUser.Equals(TypeOfUser.EndUser))
+                    tickets = ticketService.GetFromUserSortedById(loggedInUser);
+                else
+                    tickets = ticketService.GetAllSortedById();
             }
 
             foreach (Ticket item in tickets)
@@ -101,25 +117,42 @@ namespace GardenGroupUI
 
             List<Ticket> sortedList = tickets;
 
-            switch (selectedOption)
+            if (loggedInUser.TypeOfUser.Equals(TypeOfUser.EndUser))
             {
-                case "Default":
-                    sortedList = ticketService.GetAllSortedById();
-                    break;
-                case "Priority":
-                    sortedList = ticketService.GetAllSortedByPriority();
-                    break;
-                case "Date reported":
-                    sortedList = ticketService.GetAllSortedByDateReported();
-                    break;
-                case "Deadline":
-                    sortedList = ticketService.GetAllSortedByDeadline();
-                    break;
-                case "Solved":
-                    sortedList = ticketService.GetAllSortedBySolved();
-                    break;
-                default:
-                    break;
+                switch (selectedOption)
+                {
+                    case "Default":
+                        sortedList = ticketService.GetFromUserSortedById(loggedInUser);
+                        break;
+                    case "Priority":
+                        sortedList = ticketService.GetFromUserSortedByPriority(loggedInUser);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                switch (selectedOption)
+                {
+                    case "Default":
+                        sortedList = ticketService.GetAllSortedById();
+                        break;
+                    case "Priority":
+                        sortedList = ticketService.GetAllSortedByPriority();
+                        break;
+                    case "Date reported":
+                        sortedList = ticketService.GetAllSortedByDateReported();
+                        break;
+                    case "Deadline":
+                        sortedList = ticketService.GetAllSortedByDeadline();
+                        break;
+                    case "Solved":
+                        sortedList = ticketService.GetAllSortedBySolved();
+                        break;
+                    default:
+                        break;
+                }
             }
 
             listViewTickets.Items.Clear();

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace GardenGroupModel
 {
-    class Session
+    public class Session
     {
         private static Session instance;
         public static Session Instance 
         { 
             get
             {
-                if (instance != null)
+                if (instance == null)
                     instance = new Session();
                 return instance;
             } 

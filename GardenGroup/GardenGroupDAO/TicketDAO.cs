@@ -46,7 +46,19 @@ namespace GardenGroupDAO
             db.UpdateDocument<Ticket>(id, TABLE_NAME, updatedTicket);
         }
 
-        
+
+        //(DB) - To get current tickets for the end-users
+        public List<Ticket> GetUsersTicketsSortedByID(User user)
+        {
+            return db.GetUsersTicketsSortedByIDDocuments<Ticket>(TABLE_NAME, user);
+        }
+
+        public List<Ticket> GetUsersTicketsSortedByPriority(User user)
+        {
+            return db.GetUsersTicketsSortedByPriorityDocuments<Ticket>(TABLE_NAME, user);
+        }
+
+
         //(DB) - Additional functionality - sorting by priority
         public List<Ticket> GetAllSortedById()
         {
