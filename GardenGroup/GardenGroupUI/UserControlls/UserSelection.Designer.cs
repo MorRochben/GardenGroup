@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "",
             "dfg",
             "rhttr",
@@ -47,15 +47,16 @@
             this.Firstname,
             this.Lastname,
             this.Email});
+            this.listViewUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewUsers.FullRowSelect = true;
             this.listViewUsers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listViewUsers.HideSelection = false;
             this.listViewUsers.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.listViewUsers.Location = new System.Drawing.Point(225, 92);
+            listViewItem4});
+            this.listViewUsers.Location = new System.Drawing.Point(199, 88);
             this.listViewUsers.MultiSelect = false;
             this.listViewUsers.Name = "listViewUsers";
-            this.listViewUsers.Size = new System.Drawing.Size(582, 298);
+            this.listViewUsers.Size = new System.Drawing.Size(656, 316);
             this.listViewUsers.TabIndex = 0;
             this.listViewUsers.UseCompatibleStateImageBehavior = false;
             this.listViewUsers.View = System.Windows.Forms.View.Details;
@@ -77,10 +78,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(49, 447);
+            this.btnCancel.Location = new System.Drawing.Point(199, 428);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 51);
             this.btnCancel.TabIndex = 31;
@@ -90,10 +91,10 @@
             // 
             // btnSelectUser
             // 
-            this.btnSelectUser.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSelectUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSelectUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelectUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelectUser.Location = new System.Drawing.Point(845, 447);
+            this.btnSelectUser.Location = new System.Drawing.Point(730, 428);
             this.btnSelectUser.Name = "btnSelectUser";
             this.btnSelectUser.Size = new System.Drawing.Size(125, 51);
             this.btnSelectUser.TabIndex = 32;
@@ -103,13 +104,15 @@
             // 
             // UserSelection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Controls.Add(this.btnSelectUser);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.listViewUsers);
             this.Name = "UserSelection";
-            this.Size = new System.Drawing.Size(1055, 537);
+            this.Size = new System.Drawing.Size(1041, 604);
+            this.Load += new System.EventHandler(this.UserSelection_Load);
             this.ResumeLayout(false);
 
         }

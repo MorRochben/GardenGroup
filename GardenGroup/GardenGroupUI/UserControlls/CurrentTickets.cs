@@ -20,20 +20,28 @@ namespace GardenGroupUI
 
         private List<Ticket> tickets;
         private TicketService ticketService;
+        private UserService userService;
 
         private User loggedInUser;
+
+        private List<User> users;
 
         public CurrentTickets()
         {
             InitializeComponent();
             this.Size = ClientSize;
             ticketService = new TicketService();
+            userService = new UserService();
             Start();
         }
 
         private void Start()
         {
             loggedInUser = Session.Instance.LoggedInUser;
+            users = userService.GetAll();
+
+            lbl_Welcome.Text = "Welcome " + loggedInUser.FirstName + " " + loggedInUser.LastName;
+            lbl_typeUser.Text = "Type: " + loggedInUser.TypeOfUser;
 
             if(loggedInUser.TypeOfUser.Equals(TypeOfUser.EndUser))
             {
@@ -61,7 +69,8 @@ namespace GardenGroupUI
 
             foreach (Ticket item in tickets)
             {
-                string[] row = { item.Id, item.Subject, item.ReportedBy, item.ReportedDate.ToString("dd-MM-yyyy"), item.Priority.ToString() };
+
+                string[] row = { item.Id, item.Subject, getReportedBy(item.ReportedBy), item.ReportedDate.ToString("dd-MM-yyyy"), item.Priority.ToString() };
                 listViewTickets.Items.Add(new ListViewItem(row));
             }
         }
@@ -81,9 +90,10 @@ namespace GardenGroupUI
 
             textBoxDetailed.Lines = new string[]
             {
+                String.Format("ID: \t\t{0}", selectedTicket.Id),
                 String.Format("Subject: \t\t{0}", selectedTicket.Subject),
                 String.Format("Description: {0, -25}", selectedTicket.Description),
-                String.Format("Reported by: \t{0, -25}", selectedTicket.ReportedBy),
+                String.Format("Reported by: \t{0, -25}", getReportedBy(selectedTicket.ReportedBy)),
                 String.Format("Reported date: \t{0, -25}", selectedTicket.ReportedDate),
                 String.Format("Deadline: \t\t{0, -25}", selectedTicket.Deadline),
                 String.Format("Incident type: \t{0, -25}", selectedTicket.Type),
@@ -91,6 +101,22 @@ namespace GardenGroupUI
                 String.Format("Solved incident? \t{0, -25}", selectedTicket.IsSolved),
             };
 
+        }
+
+        private string getReportedBy(string id)
+        {
+            string reportedByFullName = "";
+
+            foreach (User user in users)
+            {
+                if (id.Equals(user.Id))
+                {
+                    reportedByFullName = user.FirstName + " " + user.LastName;
+                    break;
+                }
+            }
+
+            return reportedByFullName;
         }
 
         private Ticket GetSelectedTicket()

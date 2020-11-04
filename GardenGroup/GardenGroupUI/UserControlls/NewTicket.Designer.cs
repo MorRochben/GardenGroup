@@ -58,70 +58,77 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 28);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label1.Location = new System.Drawing.Point(53, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(368, 31);
+            this.label1.Size = new System.Drawing.Size(303, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Create New Incident Ticket";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.label2.Location = new System.Drawing.Point(55, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 18);
+            this.label2.Size = new System.Drawing.Size(146, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Date/Time reported";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(55, 135);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label3.Location = new System.Drawing.Point(55, 143);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 18);
+            this.label3.Size = new System.Drawing.Size(140, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Subject of incident";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(55, 237);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label4.Location = new System.Drawing.Point(55, 273);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 18);
+            this.label4.Size = new System.Drawing.Size(120, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Type of incident";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(55, 291);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label6.Location = new System.Drawing.Point(55, 340);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 18);
+            this.label6.Size = new System.Drawing.Size(56, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Priority";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(55, 352);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label7.Location = new System.Drawing.Point(55, 413);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 18);
+            this.label7.Size = new System.Drawing.Size(138, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "Deadline/follow up";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(471, 78);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label8.Location = new System.Drawing.Point(542, 79);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 18);
+            this.label8.Size = new System.Drawing.Size(89, 20);
             this.label8.TabIndex = 7;
             this.label8.Text = "Description";
             // 
@@ -136,10 +143,10 @@
             // 
             // btnCreateTicket
             // 
-            this.btnCreateTicket.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCreateTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnCreateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateTicket.Location = new System.Drawing.Point(585, 440);
+            this.btnCreateTicket.Location = new System.Drawing.Point(793, 525);
             this.btnCreateTicket.Name = "btnCreateTicket";
             this.btnCreateTicket.Size = new System.Drawing.Size(163, 51);
             this.btnCreateTicket.TabIndex = 9;
@@ -149,10 +156,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(58, 442);
+            this.btnCancel.Location = new System.Drawing.Point(58, 525);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 51);
             this.btnCancel.TabIndex = 10;
@@ -163,7 +170,7 @@
             // txtSubject
             // 
             this.txtSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubject.Location = new System.Drawing.Point(58, 157);
+            this.txtSubject.Location = new System.Drawing.Point(58, 165);
             this.txtSubject.Name = "txtSubject";
             this.txtSubject.Size = new System.Drawing.Size(361, 24);
             this.txtSubject.TabIndex = 11;
@@ -172,18 +179,18 @@
             // 
             this.cmbIncicentType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbIncicentType.FormattingEnabled = true;
-            this.cmbIncicentType.Location = new System.Drawing.Point(58, 259);
+            this.cmbIncicentType.Location = new System.Drawing.Point(58, 295);
             this.cmbIncicentType.Name = "cmbIncicentType";
-            this.cmbIncicentType.Size = new System.Drawing.Size(164, 26);
+            this.cmbIncicentType.Size = new System.Drawing.Size(238, 26);
             this.cmbIncicentType.TabIndex = 12;
             // 
             // cmbPriority
             // 
             this.cmbPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPriority.FormattingEnabled = true;
-            this.cmbPriority.Location = new System.Drawing.Point(58, 312);
+            this.cmbPriority.Location = new System.Drawing.Point(58, 361);
             this.cmbPriority.Name = "cmbPriority";
-            this.cmbPriority.Size = new System.Drawing.Size(164, 26);
+            this.cmbPriority.Size = new System.Drawing.Size(238, 26);
             this.cmbPriority.TabIndex = 14;
             // 
             // numReportHour
@@ -230,7 +237,7 @@
             // 
             this.dateDeadline.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateDeadline.Location = new System.Drawing.Point(58, 373);
+            this.dateDeadline.Location = new System.Drawing.Point(58, 434);
             this.dateDeadline.Name = "dateDeadline";
             this.dateDeadline.Size = new System.Drawing.Size(238, 24);
             this.dateDeadline.TabIndex = 17;
@@ -240,9 +247,9 @@
             // 
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(474, 100);
+            this.txtDescription.Location = new System.Drawing.Point(526, 100);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(347, 303);
+            this.txtDescription.Size = new System.Drawing.Size(430, 379);
             this.txtDescription.TabIndex = 18;
             this.txtDescription.Text = "";
             // 
@@ -250,8 +257,8 @@
             // 
             this.lblDeadLineError.AutoSize = true;
             this.lblDeadLineError.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeadLineError.ForeColor = System.Drawing.Color.Red;
-            this.lblDeadLineError.Location = new System.Drawing.Point(55, 400);
+            this.lblDeadLineError.ForeColor = System.Drawing.Color.Tomato;
+            this.lblDeadLineError.Location = new System.Drawing.Point(70, 461);
             this.lblDeadLineError.Name = "lblDeadLineError";
             this.lblDeadLineError.Size = new System.Drawing.Size(353, 18);
             this.lblDeadLineError.TabIndex = 19;
@@ -270,20 +277,22 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(55, 194);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.label9.Location = new System.Drawing.Point(55, 210);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 18);
+            this.label9.Size = new System.Drawing.Size(104, 20);
             this.label9.TabIndex = 21;
             this.label9.Text = "Reported by: ";
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(157, 194);
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.lblUsername.Location = new System.Drawing.Point(157, 210);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(74, 18);
+            this.lblUsername.Size = new System.Drawing.Size(80, 20);
             this.lblUsername.TabIndex = 22;
             this.lblUsername.Text = "username";
             // 
@@ -292,9 +301,9 @@
             this.btnChangeUser.BackColor = System.Drawing.SystemColors.Control;
             this.btnChangeUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeUser.Location = new System.Drawing.Point(314, 188);
+            this.btnChangeUser.Location = new System.Drawing.Point(311, 204);
             this.btnChangeUser.Name = "btnChangeUser";
-            this.btnChangeUser.Size = new System.Drawing.Size(105, 31);
+            this.btnChangeUser.Size = new System.Drawing.Size(108, 31);
             this.btnChangeUser.TabIndex = 32;
             this.btnChangeUser.Text = "change user";
             this.btnChangeUser.UseVisualStyleBackColor = false;
@@ -304,8 +313,8 @@
             // 
             this.lblUserSelectError.AutoSize = true;
             this.lblUserSelectError.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserSelectError.ForeColor = System.Drawing.Color.Red;
-            this.lblUserSelectError.Location = new System.Drawing.Point(66, 219);
+            this.lblUserSelectError.ForeColor = System.Drawing.Color.Tomato;
+            this.lblUserSelectError.Location = new System.Drawing.Point(70, 238);
             this.lblUserSelectError.Name = "lblUserSelectError";
             this.lblUserSelectError.Size = new System.Drawing.Size(322, 18);
             this.lblUserSelectError.TabIndex = 33;
@@ -313,9 +322,9 @@
             // 
             // NewTicket
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(255)))), ((int)(((byte)(210)))));
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Controls.Add(this.lblUserSelectError);
             this.Controls.Add(this.btnChangeUser);
             this.Controls.Add(this.lblUsername);
@@ -340,7 +349,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "NewTicket";
-            this.Size = new System.Drawing.Size(996, 540);
+            this.Size = new System.Drawing.Size(1041, 604);
+            this.Load += new System.EventHandler(this.NewTicket_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numReportHour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numReportMinute)).EndInit();
             this.ResumeLayout(false);
