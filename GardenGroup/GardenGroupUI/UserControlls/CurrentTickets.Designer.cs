@@ -70,7 +70,7 @@
             // columnHeaderID
             // 
             this.columnHeaderID.Text = "ID";
-            this.columnHeaderID.Width = 69;
+            this.columnHeaderID.Width = 49;
             // 
             // columnHeaderSubject
             // 

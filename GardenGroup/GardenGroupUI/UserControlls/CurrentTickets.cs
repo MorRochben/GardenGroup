@@ -91,9 +91,6 @@ namespace GardenGroupUI
                 return;
             }
 
-            //alligning the text
-            string description = selectedTicket.Description.Replace("\n", "\n\t\t");
-
             textBoxDetailed.Lines = new string[]
             {
                 String.Format("ID: \t\t{0}", selectedTicket.Id),
