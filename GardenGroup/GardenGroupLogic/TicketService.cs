@@ -45,6 +45,12 @@ namespace GardenGroupLogic
             UpdateTicket(ticket);
         }
 
+        // (MVL)
+        public void ArchiveTickets()
+        {
+            ticketDAO.ArchiveData();
+        }
+
         //(DB)
         public List<Ticket> GetFromUserSortedById(User user)
         {

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
+// (MVL)
 namespace GardenGroupDAO
 {
     public class MongoDB
@@ -35,18 +35,38 @@ namespace GardenGroupDAO
             db = client.GetDatabase("GardenGroup");
         }
 
+        // (MVL)
         public void InsertDocument<T>(string table, T record)
         {
             var collection = db.GetCollection<T>(table);
             collection.InsertOne(record);
         }
 
+        // (MVL)
         public List<T> GetDocuments<T>(string table)
         {
             var collection = db.GetCollection<T>(table);
             return collection.Find<T>(new BsonDocument()).ToList();
         }
 
+        // (MVL)
+        public void ArchiveData<T>(string table, FilterDefinition<T> filter)
+        {
+            var collection = db.GetCollection<T>(table);
+            var dataToBeArchived = collection.Find<T>(filter);
+
+            if (dataToBeArchived.CountDocuments() == 0)
+            {
+                return;
+            }
+
+            var archivedCollection = db.GetCollection<T>(table + "_archived");
+            archivedCollection.InsertMany(dataToBeArchived.ToList());
+
+            collection.DeleteMany(filter);
+        }
+
+        // (MVL)
         public T GetDocumentById<T>(string table, string id)
         {
             var collection = db.GetCollection<T>(table);
@@ -54,6 +74,7 @@ namespace GardenGroupDAO
             return collection.Find<T>(filter).First();
         }
 
+        // (MVL)
         public void UpdateDocument<T>(string id, string table, T updatedRecord)
         {
             var collection = db.GetCollection<T>(table);
@@ -61,12 +82,14 @@ namespace GardenGroupDAO
             collection.ReplaceOne(filter, updatedRecord, new ReplaceOptions() { IsUpsert = true });
         }
 
+        // (MVL)
         public List<T> FindByQuery<T>(string table, FilterDefinition<T> filter)
         {
             var collection = db.GetCollection<T>(table);
             return collection.Find<T>(filter).ToList();
         }
 
+        // (MVL)
         public void DeleteDocument<T>(string table, string id)
         {
             var collection = db.GetCollection<T>(table);
