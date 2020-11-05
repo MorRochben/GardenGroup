@@ -92,7 +92,7 @@ namespace GardenGroupUI
             }
 
             //alligning the text
-            string description = selectedTicket.Description.Replace("\r\n", "\r\n\t\t");
+            string description = selectedTicket.Description.Replace("\n", "\n\t\t");
 
             textBoxDetailed.Lines = new string[]
             {
@@ -201,6 +201,7 @@ namespace GardenGroupUI
             this.Hide();
             UCNewIncident = new NewTicket(this);
             Parent.Controls.Add(UCNewIncident);
+            UCNewIncident.BringToFront();
         }
 
         private void btnUpdateTicket_Click(object sender, EventArgs e)
@@ -212,6 +213,7 @@ namespace GardenGroupUI
             Ticket ticket = GetSelectedTicket();
             UCUpdateTicket = new UpdateTicket(this, ticket);
             Parent.Controls.Add(UCUpdateTicket);
+            UCNewIncident.BringToFront();
         }
 
         private void btnDeleteTicket_Click(object sender, EventArgs e)
