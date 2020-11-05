@@ -140,6 +140,7 @@
             this.dateReported.Name = "dateReported";
             this.dateReported.Size = new System.Drawing.Size(238, 24);
             this.dateReported.TabIndex = 8;
+            this.dateReported.ValueChanged += new System.EventHandler(this.dateReported_ValueChanged);
             // 
             // btnCreateTicket
             // 
@@ -350,7 +351,6 @@
             this.Controls.Add(this.label1);
             this.Name = "NewTicket";
             this.Size = new System.Drawing.Size(1041, 604);
-            this.Load += new System.EventHandler(this.NewTicket_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numReportHour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numReportMinute)).EndInit();
             this.ResumeLayout(false);

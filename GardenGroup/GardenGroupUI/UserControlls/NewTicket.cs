@@ -123,8 +123,13 @@ namespace GardenGroupUI.UserControlls
             else
                 lblDeadLineError.Hide();
         }
-
-        
+        private void dateReported_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateDeadline.Value.Date < dateReported.Value.Date)
+                lblDeadLineError.Show();
+            else
+                lblDeadLineError.Hide();
+        }
 
         private void btnChangeUser_Click(object sender, EventArgs e)
         {
@@ -132,11 +137,6 @@ namespace GardenGroupUI.UserControlls
             mainForm.Parent.Controls.Add(UCUS);
             mainForm.Hide();
             UCUS.BringToFront();
-        }
-
-        private void NewTicket_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

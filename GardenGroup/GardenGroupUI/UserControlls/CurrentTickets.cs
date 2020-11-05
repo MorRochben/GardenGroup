@@ -95,13 +95,13 @@ namespace GardenGroupUI
             {
                 String.Format("ID: \t\t{0}", selectedTicket.Id),
                 String.Format("Subject: \t\t{0}", selectedTicket.Subject),
-                String.Format("Description: \t{0, -25}", selectedTicket.Description),
                 String.Format("Reported by: \t{0, -25}", getReportedBy(selectedTicket.ReportedBy)),
                 String.Format("Reported date: \t{0, -25}", selectedTicket.ReportedDate),
                 String.Format("Deadline: \t\t{0, -25}", selectedTicket.Deadline),
                 String.Format("Incident type: \t{0, -25}", selectedTicket.Type),
                 String.Format("Priority: \t\t{0, -25}", selectedTicket.Priority),
                 String.Format("Solved incident? \t{0, -25}", selectedTicket.IsSolved),
+                String.Format("Description: \t{0, -25}", selectedTicket.Description)
             };
 
         }
