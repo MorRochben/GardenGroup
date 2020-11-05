@@ -69,17 +69,17 @@
             // columnHeaderID
             // 
             this.columnHeaderID.Text = "ID";
-            this.columnHeaderID.Width = 69;
+            this.columnHeaderID.Width = 49;
             // 
             // columnHeaderSubject
             // 
             this.columnHeaderSubject.Text = "Subject";
-            this.columnHeaderSubject.Width = 89;
+            this.columnHeaderSubject.Width = 159;
             // 
             // columnHeaderReportedBy
             // 
             this.columnHeaderReportedBy.Text = "Reported By";
-            this.columnHeaderReportedBy.Width = 174;
+            this.columnHeaderReportedBy.Width = 137;
             // 
             // columnHeaderDate
             // 
@@ -89,7 +89,7 @@
             // columnHeaderPriority
             // 
             this.columnHeaderPriority.Text = "Priority";
-            this.columnHeaderPriority.Width = 101;
+            this.columnHeaderPriority.Width = 84;
             // 
             // comboBoxSortBy
             // 
@@ -210,7 +210,7 @@
             // archive
             // 
             this.archive.Location = new System.Drawing.Point(20, 529);
-            this.archive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.archive.Margin = new System.Windows.Forms.Padding(2);
             this.archive.Name = "archive";
             this.archive.Size = new System.Drawing.Size(171, 50);
             this.archive.TabIndex = 13;

@@ -91,14 +91,11 @@ namespace GardenGroupUI
                 return;
             }
 
-            //alligning the text
-            string description = selectedTicket.Description.Replace("\n", "\n\t\t");
-
             textBoxDetailed.Lines = new string[]
             {
                 String.Format("ID: \t\t{0}", selectedTicket.Id),
                 String.Format("Subject: \t\t{0}", selectedTicket.Subject),
-                String.Format("Description: \t{0, -25}", description),
+                String.Format("Description: \t{0, -25}", selectedTicket.Description),
                 String.Format("Reported by: \t{0, -25}", getReportedBy(selectedTicket.ReportedBy)),
                 String.Format("Reported date: \t{0, -25}", selectedTicket.ReportedDate),
                 String.Format("Deadline: \t\t{0, -25}", selectedTicket.Deadline),
