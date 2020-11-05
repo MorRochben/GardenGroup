@@ -29,7 +29,7 @@ namespace GardenGroupUI.UserControlls
             lblUserSelectError.Hide();
             lblDeadLineError.Hide();
 
-            if(Session.Instance.LoggedInUser.TypeOfUser == TypeOfUser.Employee)
+            if(Session.Instance.LoggedInUser.TypeOfUser == TypeOfUser.EndUser)
             {
                 btnChangeUser.Enabled = false;
                 btnChangeUser.Visible = false;

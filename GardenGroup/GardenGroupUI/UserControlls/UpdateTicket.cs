@@ -52,7 +52,7 @@ namespace GardenGroupUI.UserControlls
                 dateDeadline.Value = dateDeadline.MinDate;
             }
 
-            if (Session.Instance.LoggedInUser.TypeOfUser == TypeOfUser.Employee)
+            if (Session.Instance.LoggedInUser.TypeOfUser == TypeOfUser.EndUser)
             {
                 btnChangeUser.Enabled = false;
                 btnChangeUser.Visible = false;
