@@ -51,16 +51,6 @@ namespace GardenGroupLogic
             ticketDAO.ArchiveData();
         }
 
-        //(DB)
-        public List<Ticket> GetFromUserSortedById(User user)
-        {
-            return ticketDAO.GetUsersTicketsSortedByID(user);
-        }
-        public List<Ticket> GetFromUserSortedByPriority(User user)
-        {
-            return ticketDAO.GetUsersTicketsSortedByPriority(user);
-        }
-
 
         //(DB) - Additional functionality - sorting by priority
         public List<Ticket> GetAllSortedById()
@@ -87,5 +77,31 @@ namespace GardenGroupLogic
         {
             return ticketDAO.GetAllSortedBySolved();
         }
+
+        //(DB) For end-user
+        public List<Ticket> GetFromUserSortedById(User user)
+        {
+            return ticketDAO.GetUsersTicketsSortedByID(user);
+        }
+        public List<Ticket> GetFromUserSortedByPriority(User user)
+        {
+            return ticketDAO.GetUsersTicketsSortedByPriority(user);
+        }
+
+        public List<Ticket> GetFromUserAllSortedByDateReported(User user)
+        {
+            return ticketDAO.GetUsersTicketsAllSortedByDateReported(user);
+        }
+
+        public List<Ticket> GetFromUserAllSortedByDeadline(User user)
+        {
+            return ticketDAO.GetUsersTicketsAllSortedByDeadline(user);
+        }
+
+        public List<Ticket> GetFromUserAllSortedBySolved(User user)
+        {
+            return ticketDAO.GetUsersTicketsAllSortedBySolved(user);
+        }
+
     }
 }

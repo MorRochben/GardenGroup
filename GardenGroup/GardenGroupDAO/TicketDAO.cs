@@ -61,18 +61,6 @@ namespace GardenGroupDAO
         }
 
 
-        //(DB) - To get current tickets for the end-users
-        public List<Ticket> GetUsersTicketsSortedByID(User user)
-        {
-            return db.GetUsersTicketsSortedByIDDocuments<Ticket>(TABLE_NAME, user);
-        }
-
-        public List<Ticket> GetUsersTicketsSortedByPriority(User user)
-        {
-            return db.GetUsersTicketsSortedByPriorityDocuments<Ticket>(TABLE_NAME, user);
-        }
-
-
         //(DB) - Additional functionality - sorting by priority
         public List<Ticket> GetAllSortedById()
         {
@@ -99,6 +87,34 @@ namespace GardenGroupDAO
             return db.GetSortedSolvedDocuments<Ticket>(TABLE_NAME);
         }
 
-       
+
+
+        // (DB) - To get current tickets for the end-users
+        public List<Ticket> GetUsersTicketsSortedByID(User user)
+        {
+            return db.GetUsersTicketsSortedByIDDocuments<Ticket>(TABLE_NAME, user);
+        }
+
+        public List<Ticket> GetUsersTicketsSortedByPriority(User user)
+        {
+            return db.GetUsersTicketsSortedByPriorityDocuments<Ticket>(TABLE_NAME, user);
+        }
+
+        public List<Ticket> GetUsersTicketsAllSortedByDateReported(User user)
+        {
+            return db.GetUsersTicketsSortedDateReportedDocuments<Ticket>(TABLE_NAME, user);
+        }
+
+        public List<Ticket> GetUsersTicketsAllSortedByDeadline(User user)
+        {
+            return db.GetUsersTicketsSortedDeadlineDocuments<Ticket>(TABLE_NAME, user);
+        }
+
+        public List<Ticket> GetUsersTicketsAllSortedBySolved(User user)
+        {
+            return db.GetUsersTicketsSortedSolvedDocuments<Ticket>(TABLE_NAME, user);
+        }
+
+
     }
 }

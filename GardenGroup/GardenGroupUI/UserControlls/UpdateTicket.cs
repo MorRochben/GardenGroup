@@ -78,7 +78,7 @@ namespace GardenGroupUI.UserControlls
             TicketService ticketService = new TicketService();
 
             ticketService.UpdateTicket(ticket);
-            mainForm.changedListSort();
+            mainForm.ChangedListSort();
             Close();
         }
 
@@ -89,7 +89,7 @@ namespace GardenGroupUI.UserControlls
 
         private void Close()
         {
-            mainForm.displayAllTickets();
+            mainForm.DisplayAllTickets();
             mainForm.Show();
             mainForm.UCUpdateTicket.Dispose();
             mainForm.UCUpdateTicket = null;
@@ -119,7 +119,6 @@ namespace GardenGroupUI.UserControlls
                 return;
 
             ticket.Type = (TypeOfIncident)cmbIncicentType.SelectedIndex;
-
         }
 
         private void cmbPriority_SelectedIndexChanged(object sender, EventArgs e)
@@ -151,7 +150,5 @@ namespace GardenGroupUI.UserControlls
             mainForm.Hide();
             UCUS.BringToFront();
         }
-
-
     }
 }

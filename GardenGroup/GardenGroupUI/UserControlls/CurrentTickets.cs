@@ -55,10 +55,10 @@ namespace GardenGroupUI
                 archive.Visible = false;
             }
 
-            displayAllTickets();
+            DisplayAllTickets();
         }
 
-        public void displayAllTickets()
+        public void DisplayAllTickets()
         {
             listViewTickets.Items.Clear();
 
@@ -73,7 +73,7 @@ namespace GardenGroupUI
             foreach (Ticket item in tickets)
             {
 
-                string[] row = { item.Id, item.Subject, getReportedBy(item.ReportedBy), item.ReportedDate.ToString("dd-MM-yyyy"), item.Priority.ToString() };
+                string[] row = { item.Id, item.Subject, GetReportedBy(item.ReportedBy), item.ReportedDate.ToString("dd-MM-yyyy"), item.Priority.ToString() };
                 listViewTickets.Items.Add(new ListViewItem(row));
             }
         }
@@ -94,19 +94,24 @@ namespace GardenGroupUI
             textBoxDetailed.Lines = new string[]
             {
                 String.Format("ID: \t\t{0}", selectedTicket.Id),
-                String.Format("Subject: \t\t{0}", selectedTicket.Subject),
-                String.Format("Reported by: \t{0, -25}", getReportedBy(selectedTicket.ReportedBy)),
+                String.Format("Reported by: \t{0, -25}", GetReportedBy(selectedTicket.ReportedBy)),
                 String.Format("Reported date: \t{0, -25}", selectedTicket.ReportedDate),
                 String.Format("Deadline: \t\t{0, -25}", selectedTicket.Deadline),
                 String.Format("Incident type: \t{0, -25}", selectedTicket.Type),
                 String.Format("Priority: \t\t{0, -25}", selectedTicket.Priority),
                 String.Format("Solved incident? \t{0, -25}", selectedTicket.IsSolved),
-                String.Format("Description: \t{0, -25}", selectedTicket.Description)
+            };
+
+            textBox_description.Lines = new string[]
+            {
+                "Subject: " + selectedTicket.Subject,
+                "Description:",
+                selectedTicket.Description,
             };
 
         }
 
-        private string getReportedBy(string id)
+        private string GetReportedBy(string id)
         {
             string reportedByFullName = "";
 
@@ -137,10 +142,10 @@ namespace GardenGroupUI
 
         private void comboBoxSortBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            changedListSort();
+            ChangedListSort();
         }
 
-        public void changedListSort()
+        public void ChangedListSort()
         {
             string selectedOption = comboBoxSortBy.Text;
 
@@ -155,6 +160,15 @@ namespace GardenGroupUI
                         break;
                     case "Priority":
                         sortedList = ticketService.GetFromUserSortedByPriority(loggedInUser);
+                        break;
+                    case "Date reported":
+                        sortedList = ticketService.GetFromUserAllSortedByDateReported(loggedInUser);
+                        break;
+                    case "Deadline":
+                        sortedList = ticketService.GetFromUserAllSortedByDeadline(loggedInUser);
+                        break;
+                    case "Solved":
+                        sortedList = ticketService.GetFromUserAllSortedBySolved(loggedInUser);
                         break;
                     default:
                         break;
@@ -187,7 +201,7 @@ namespace GardenGroupUI
             listViewTickets.Items.Clear();
 
             tickets = sortedList;
-            displayAllTickets();
+            DisplayAllTickets();
         }
 
         private void btnNewTicket_Click(object sender, EventArgs e)
@@ -210,7 +224,7 @@ namespace GardenGroupUI
             Ticket ticket = GetSelectedTicket();
             UCUpdateTicket = new UpdateTicket(this, ticket);
             Parent.Controls.Add(UCUpdateTicket);
-            UCNewIncident.BringToFront();
+            UCUpdateTicket.BringToFront();
         }
 
         private void btnDeleteTicket_Click(object sender, EventArgs e)
@@ -222,7 +236,7 @@ namespace GardenGroupUI
 
             ticketService.DeleteTicket(ticket.Id);
             tickets = null;
-            displayAllTickets();
+            DisplayAllTickets();
         }
 
         // (MVL)
@@ -242,7 +256,7 @@ namespace GardenGroupUI
             foreach (Ticket item in tickets)
             {
 
-                string[] row = { item.Id, item.Subject, getReportedBy(item.ReportedBy), item.ReportedDate.ToString("dd-MM-yyyy"), item.Priority.ToString() };
+                string[] row = { item.Id, item.Subject, GetReportedBy(item.ReportedBy), item.ReportedDate.ToString("dd-MM-yyyy"), item.Priority.ToString() };
                 listViewTickets.Items.Add(new ListViewItem(row));
             }
         }

@@ -98,27 +98,6 @@ namespace GardenGroupDAO
             collection.DeleteOne(filter);
         }
 
-        // (DB)
-
-        public List<T> GetUsersTicketsSortedByIDDocuments<T>(string table, User user)
-        {
-            var collection = db.GetCollection<T>(table);
-            var filter = Builders<T>.Filter.Eq("ReportedBy", user.Id);
-            var sort = Builders<T>.Sort.Descending("Id");
-
-            return collection.Find<T>(filter).Sort(sort).ToList();
-        }
-
-        public List<T> GetUsersTicketsSortedByPriorityDocuments<T>(string table, User user)
-        {
-            var collection = db.GetCollection<T>(table);
-            var filter = Builders<T>.Filter.Eq("ReportedBy", user.Id);
-            var pSort = Builders<T>.Sort.Descending("Priority");
-            var rSort = Builders<T>.Sort.Descending("ReportedDate");
-
-            return collection.Find<T>(filter).Sort(rSort).Sort(pSort).ToList();
-        }
-
 
         //(DB) - Additional functionality - sorting by id and priority
         public List<T> GetSortedIDDocuments<T>(string table)
@@ -135,8 +114,6 @@ namespace GardenGroupDAO
             var pSort = Builders<T>.Sort.Descending("Priority");
             var rSort = Builders<T>.Sort.Descending("ReportedDate");
 
-            //Better way?
-            //First the reportedDate sort, then priotrity sort --> cause the priority is the most important
             return collection.Find<T>(new BsonDocument()).Sort(rSort).Sort(pSort).ToList();
         }
 
@@ -162,6 +139,56 @@ namespace GardenGroupDAO
 
             return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
         }
+
+        // (DB) For end-user
+
+        public List<T> GetUsersTicketsSortedByIDDocuments<T>(string table, User user)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("ReportedBy", user.Id);
+            var sort = Builders<T>.Sort.Descending("Id");
+
+            return collection.Find<T>(filter).Sort(sort).ToList();
+        }
+
+        public List<T> GetUsersTicketsSortedByPriorityDocuments<T>(string table, User user)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("ReportedBy", user.Id);
+            var pSort = Builders<T>.Sort.Descending("Priority");
+            var rSort = Builders<T>.Sort.Descending("ReportedDate");
+
+            return collection.Find<T>(filter).Sort(rSort).Sort(pSort).ToList();
+        }
+
+
+        public List<T> GetUsersTicketsSortedDateReportedDocuments<T>(string table, User user)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("ReportedBy", user.Id);
+            var sort = Builders<T>.Sort.Ascending("ReportedDate");
+
+            return collection.Find<T>(filter).Sort(sort).ToList();
+        }
+
+        public List<T> GetUsersTicketsSortedDeadlineDocuments<T>(string table, User user)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("ReportedBy", user.Id);
+            var sort = Builders<T>.Sort.Ascending("Deadline");
+
+            return collection.Find<T>(filter).Sort(sort).ToList();
+        }
+
+        public List<T> GetUsersTicketsSortedSolvedDocuments<T>(string table, User user)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("ReportedBy", user.Id);
+            var sort = Builders<T>.Sort.Ascending("IsSolved");
+
+            return collection.Find<T>(filter).Sort(sort).ToList();
+        }
+
 
         //(TA) -Additional functionality - updating the password through searching by email/username
 
