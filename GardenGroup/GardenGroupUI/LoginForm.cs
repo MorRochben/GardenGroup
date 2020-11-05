@@ -31,37 +31,43 @@ namespace GardenGroupUI
             RememberCredentials();
 
             users = userService.GetAll();
-            int index = users.FindIndex(user => user.Email == tb_Username.Text);
+            int userIndex = users.FindIndex(user => user.Email == tb_Username.Text);
 
-            // Q: Probably this should be in the try catch clause?
-            if (tb_Username.Text == null || tb_Password.Text == null)
+            try
             {
-                MessageBox.Show("Please enter a username and password.");
-            }
-            else if (index >= 0)
-            {
-                // TO DO: Show screens depending on the type of user  
-                if (users[index].Password == tb_Password.Text)
+                if (tb_Username.Text == "" || tb_Password.Text == "")
                 {
-                    DialogResult result = MessageBox.Show("Login Successfull", "Sucessfully logged in!",
-                       MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    MessageBox.Show("Please enter a username and password.", "Login Unsuccessful",
+                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                }
+                else if (userIndex >= 0)
+                {
+                    if (users[userIndex].Password == tb_Password.Text)
+                    {
+                        DialogResult result = MessageBox.Show("Login Successfull", "Sucessfully logged in!",
+                           MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
                     if(result == DialogResult.OK)
                     {
-                        Session.Instance.LoggedInUser = users[index];
+                        Session.Instance.LoggedInUser = users[userIndex];
 
                         this.Hide();
                         MainForm mainform = new MainForm();
                         mainform.Closed += (s, args) => this.Close();
                         mainform.ShowDialog();
 
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login unsuccessfull", "Can't login! Incorrect password!",
+                           MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                     }
                 }
             }
-            else
+            catch (Exception excp)
             {
-                MessageBox.Show("Login unsuccessfull", "Can't login! Incorrect credentials! ",
-                       MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Something went wrong!");
             }
         }
 
@@ -74,6 +80,7 @@ namespace GardenGroupUI
             }
         }
 
+        //If checkbox is checked, then remembers the credentials for next time 
         private void RememberCredentials()
         {
             if(cb_RemeberMe.Checked)
@@ -89,5 +96,13 @@ namespace GardenGroupUI
                 Properties.Settings.Default.Save();
             }
         }
+
+        //opens a new form when the forget details link is clicked
+        private void ll_forgotdetails_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPasswordForm forgotPasswordForm = new ForgotPasswordForm(tb_Username.Text);
+            forgotPasswordForm.Show();
+        }
+
     }
 }
