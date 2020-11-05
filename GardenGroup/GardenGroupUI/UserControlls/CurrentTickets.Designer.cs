@@ -44,6 +44,7 @@
             this.lbl_Welcome = new System.Windows.Forms.Label();
             this.lbl_typeUser = new System.Windows.Forms.Label();
             this.archive = new System.Windows.Forms.Button();
+            this.textBox_description = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listViewTickets
@@ -74,22 +75,22 @@
             // columnHeaderSubject
             // 
             this.columnHeaderSubject.Text = "Subject";
-            this.columnHeaderSubject.Width = 89;
+            this.columnHeaderSubject.Width = 200;
             // 
             // columnHeaderReportedBy
             // 
             this.columnHeaderReportedBy.Text = "Reported By";
-            this.columnHeaderReportedBy.Width = 174;
+            this.columnHeaderReportedBy.Width = 134;
             // 
             // columnHeaderDate
             // 
             this.columnHeaderDate.Text = "Date";
-            this.columnHeaderDate.Width = 162;
+            this.columnHeaderDate.Width = 97;
             // 
             // columnHeaderPriority
             // 
             this.columnHeaderPriority.Text = "Priority";
-            this.columnHeaderPriority.Width = 101;
+            this.columnHeaderPriority.Width = 75;
             // 
             // comboBoxSortBy
             // 
@@ -125,13 +126,13 @@
             // textBoxDetailed
             // 
             this.textBoxDetailed.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBoxDetailed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDetailed.Location = new System.Drawing.Point(636, 139);
+            this.textBoxDetailed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxDetailed.Location = new System.Drawing.Point(636, 306);
             this.textBoxDetailed.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDetailed.Multiline = true;
             this.textBoxDetailed.Name = "textBoxDetailed";
             this.textBoxDetailed.ReadOnly = true;
-            this.textBoxDetailed.Size = new System.Drawing.Size(378, 307);
+            this.textBoxDetailed.Size = new System.Drawing.Size(378, 154);
             this.textBoxDetailed.TabIndex = 4;
             // 
             // btnUpdateTicket
@@ -209,8 +210,9 @@
             // 
             // archive
             // 
+            this.archive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.archive.Location = new System.Drawing.Point(20, 529);
-            this.archive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.archive.Margin = new System.Windows.Forms.Padding(2);
             this.archive.Name = "archive";
             this.archive.Size = new System.Drawing.Size(171, 50);
             this.archive.TabIndex = 13;
@@ -218,11 +220,21 @@
             this.archive.UseVisualStyleBackColor = true;
             this.archive.Click += new System.EventHandler(this.archive_Click);
             // 
+            // textBox_description
+            // 
+            this.textBox_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox_description.Location = new System.Drawing.Point(636, 139);
+            this.textBox_description.Multiline = true;
+            this.textBox_description.Name = "textBox_description";
+            this.textBox_description.Size = new System.Drawing.Size(378, 162);
+            this.textBox_description.TabIndex = 14;
+            // 
             // CurrentTickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.Controls.Add(this.textBox_description);
             this.Controls.Add(this.archive);
             this.Controls.Add(this.lbl_typeUser);
             this.Controls.Add(this.lbl_Welcome);
@@ -260,5 +272,6 @@
         private System.Windows.Forms.Label lbl_Welcome;
         private System.Windows.Forms.Label lbl_typeUser;
         private System.Windows.Forms.Button archive;
+        private System.Windows.Forms.TextBox textBox_description;
     }
 }

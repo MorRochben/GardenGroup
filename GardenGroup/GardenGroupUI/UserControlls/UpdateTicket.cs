@@ -78,7 +78,7 @@ namespace GardenGroupUI.UserControlls
             TicketService ticketService = new TicketService();
 
             ticketService.UpdateTicket(ticket);
-            mainForm.changedListSort();
+            mainForm.ChangedListSort();
             Close();
         }
 
@@ -89,7 +89,7 @@ namespace GardenGroupUI.UserControlls
 
         private void Close()
         {
-            mainForm.displayAllTickets();
+            mainForm.DisplayAllTickets();
             mainForm.Show();
             mainForm.UCUpdateTicket.Dispose();
             mainForm.UCUpdateTicket = null;
