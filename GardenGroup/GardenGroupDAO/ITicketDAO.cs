@@ -8,6 +8,7 @@ namespace GardenGroupDAO
         void Create(Ticket newTicket);
         void Update(string id, Ticket updatedTicket);
         void Delete(string id);
+        void ArchiveData();
         List<Ticket> FindByType(TypeOfIncident type);
         List<Ticket> FindByBranch(string branch);
         List<Ticket> GetAll();

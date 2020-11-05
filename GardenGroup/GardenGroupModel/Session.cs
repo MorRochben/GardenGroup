@@ -13,7 +13,7 @@ namespace GardenGroupModel
         { 
             get
             {
-                if (instance != null)
+                if (instance == null)
                     instance = new Session();
                 return instance;
             } 

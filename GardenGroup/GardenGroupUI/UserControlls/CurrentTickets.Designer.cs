@@ -41,6 +41,9 @@
             this.btnNewTicket = new System.Windows.Forms.Button();
             this.label_ticketList = new System.Windows.Forms.Label();
             this.btnDeleteTicket = new System.Windows.Forms.Button();
+            this.lbl_Welcome = new System.Windows.Forms.Label();
+            this.lbl_typeUser = new System.Windows.Forms.Label();
+            this.archive = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewTickets
@@ -54,10 +57,11 @@
             this.listViewTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTickets.FullRowSelect = true;
             this.listViewTickets.HideSelection = false;
-            this.listViewTickets.Location = new System.Drawing.Point(31, 103);
+            this.listViewTickets.Location = new System.Drawing.Point(25, 174);
+            this.listViewTickets.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listViewTickets.MultiSelect = false;
             this.listViewTickets.Name = "listViewTickets";
-            this.listViewTickets.Size = new System.Drawing.Size(700, 385);
+            this.listViewTickets.Size = new System.Drawing.Size(744, 480);
             this.listViewTickets.TabIndex = 2;
             this.listViewTickets.UseCompatibleStateImageBehavior = false;
             this.listViewTickets.View = System.Windows.Forms.View.Details;
@@ -66,7 +70,7 @@
             // columnHeaderID
             // 
             this.columnHeaderID.Text = "ID";
-            this.columnHeaderID.Width = 126;
+            this.columnHeaderID.Width = 69;
             // 
             // columnHeaderSubject
             // 
@@ -99,10 +103,10 @@
             "Date reported",
             "Deadline",
             "Solved"});
-            this.comboBoxSortBy.Location = new System.Drawing.Point(966, 100);
+            this.comboBoxSortBy.Location = new System.Drawing.Point(1052, 34);
             this.comboBoxSortBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxSortBy.Name = "comboBoxSortBy";
-            this.comboBoxSortBy.Size = new System.Drawing.Size(112, 28);
+            this.comboBoxSortBy.Size = new System.Drawing.Size(164, 33);
             this.comboBoxSortBy.TabIndex = 6;
             this.comboBoxSortBy.Text = "Default";
             this.comboBoxSortBy.SelectedIndexChanged += new System.EventHandler(this.comboBoxSortBy_SelectedIndexChanged);
@@ -112,10 +116,10 @@
             this.labelSort.AutoSize = true;
             this.labelSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.labelSort.Location = new System.Drawing.Point(866, 103);
+            this.labelSort.Location = new System.Drawing.Point(928, 38);
             this.labelSort.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSort.Name = "labelSort";
-            this.labelSort.Size = new System.Drawing.Size(59, 20);
+            this.labelSort.Size = new System.Drawing.Size(74, 25);
             this.labelSort.TabIndex = 5;
             this.labelSort.Text = "Sort by";
             // 
@@ -123,12 +127,12 @@
             // 
             this.textBoxDetailed.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxDetailed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDetailed.Location = new System.Drawing.Point(760, 198);
+            this.textBoxDetailed.Location = new System.Drawing.Point(795, 174);
             this.textBoxDetailed.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDetailed.Multiline = true;
             this.textBoxDetailed.Name = "textBoxDetailed";
             this.textBoxDetailed.ReadOnly = true;
-            this.textBoxDetailed.Size = new System.Drawing.Size(358, 290);
+            this.textBoxDetailed.Size = new System.Drawing.Size(472, 383);
             this.textBoxDetailed.TabIndex = 4;
             // 
             // btnUpdateTicket
@@ -137,9 +141,10 @@
             this.btnUpdateTicket.Enabled = false;
             this.btnUpdateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateTicket.Location = new System.Drawing.Point(760, 134);
+            this.btnUpdateTicket.Location = new System.Drawing.Point(795, 76);
+            this.btnUpdateTicket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdateTicket.Name = "btnUpdateTicket";
-            this.btnUpdateTicket.Size = new System.Drawing.Size(165, 59);
+            this.btnUpdateTicket.Size = new System.Drawing.Size(231, 74);
             this.btnUpdateTicket.TabIndex = 8;
             this.btnUpdateTicket.Text = "Update Ticket";
             this.btnUpdateTicket.UseVisualStyleBackColor = false;
@@ -150,9 +155,10 @@
             this.btnNewTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(156)))), ((int)(((byte)(208)))));
             this.btnNewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewTicket.Location = new System.Drawing.Point(966, 134);
+            this.btnNewTicket.Location = new System.Drawing.Point(1052, 76);
+            this.btnNewTicket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNewTicket.Name = "btnNewTicket";
-            this.btnNewTicket.Size = new System.Drawing.Size(152, 59);
+            this.btnNewTicket.Size = new System.Drawing.Size(215, 74);
             this.btnNewTicket.TabIndex = 7;
             this.btnNewTicket.Text = "Create new Ticket";
             this.btnNewTicket.UseVisualStyleBackColor = false;
@@ -163,9 +169,10 @@
             this.label_ticketList.AutoSize = true;
             this.label_ticketList.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_ticketList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.label_ticketList.Location = new System.Drawing.Point(70, 57);
+            this.label_ticketList.Location = new System.Drawing.Point(51, 114);
+            this.label_ticketList.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_ticketList.Name = "label_ticketList";
-            this.label_ticketList.Size = new System.Drawing.Size(122, 29);
+            this.label_ticketList.Size = new System.Drawing.Size(149, 36);
             this.label_ticketList.TabIndex = 9;
             this.label_ticketList.Text = "Ticket List";
             // 
@@ -175,19 +182,57 @@
             this.btnDeleteTicket.Enabled = false;
             this.btnDeleteTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteTicket.Location = new System.Drawing.Point(966, 493);
+            this.btnDeleteTicket.Location = new System.Drawing.Point(1036, 581);
+            this.btnDeleteTicket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteTicket.Name = "btnDeleteTicket";
-            this.btnDeleteTicket.Size = new System.Drawing.Size(152, 51);
+            this.btnDeleteTicket.Size = new System.Drawing.Size(231, 74);
             this.btnDeleteTicket.TabIndex = 10;
             this.btnDeleteTicket.Text = "Delete Ticket";
             this.btnDeleteTicket.UseVisualStyleBackColor = false;
             this.btnDeleteTicket.Click += new System.EventHandler(this.btnDeleteTicket_Click);
             // 
+            // lbl_Welcome
+            // 
+            this.lbl_Welcome.AutoSize = true;
+            this.lbl_Welcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.lbl_Welcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.lbl_Welcome.Location = new System.Drawing.Point(51, 29);
+            this.lbl_Welcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Welcome.Name = "lbl_Welcome";
+            this.lbl_Welcome.Size = new System.Drawing.Size(204, 36);
+            this.lbl_Welcome.TabIndex = 11;
+            this.lbl_Welcome.Text = "Welcome user";
+            // 
+            // lbl_typeUser
+            // 
+            this.lbl_typeUser.AutoSize = true;
+            this.lbl_typeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_typeUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.lbl_typeUser.Location = new System.Drawing.Point(54, 65);
+            this.lbl_typeUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_typeUser.Name = "lbl_typeUser";
+            this.lbl_typeUser.Size = new System.Drawing.Size(124, 25);
+            this.lbl_typeUser.TabIndex = 12;
+            this.lbl_typeUser.Text = "Type of User";
+            // 
+            // archive
+            // 
+            this.archive.Location = new System.Drawing.Point(25, 661);
+            this.archive.Name = "archive";
+            this.archive.Size = new System.Drawing.Size(214, 63);
+            this.archive.TabIndex = 13;
+            this.archive.Text = "Archive";
+            this.archive.UseVisualStyleBackColor = true;
+            this.archive.Click += new System.EventHandler(this.archive_Click);
+            // 
             // CurrentTickets
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.Controls.Add(this.archive);
+            this.Controls.Add(this.lbl_typeUser);
+            this.Controls.Add(this.lbl_Welcome);
             this.Controls.Add(this.btnDeleteTicket);
             this.Controls.Add(this.label_ticketList);
             this.Controls.Add(this.btnUpdateTicket);
@@ -198,7 +243,7 @@
             this.Controls.Add(this.listViewTickets);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CurrentTickets";
-            this.Size = new System.Drawing.Size(1177, 602);
+            this.Size = new System.Drawing.Size(1301, 755);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,5 +264,8 @@
         private System.Windows.Forms.Button btnNewTicket;
         private System.Windows.Forms.Label label_ticketList;
         private System.Windows.Forms.Button btnDeleteTicket;
+        private System.Windows.Forms.Label lbl_Welcome;
+        private System.Windows.Forms.Label lbl_typeUser;
+        private System.Windows.Forms.Button archive;
     }
 }

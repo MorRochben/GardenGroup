@@ -52,5 +52,10 @@ namespace GardenGroupUI.UserControlls
             mainWindowInterface.SetUser(selectedUser);
             Dispose();
         }
+
+        private void UserSelection_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

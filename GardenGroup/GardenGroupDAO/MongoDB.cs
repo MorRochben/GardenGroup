@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using GardenGroupModel;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// (MVL)
 namespace GardenGroupDAO
 {
     public class MongoDB
@@ -33,18 +35,38 @@ namespace GardenGroupDAO
             db = client.GetDatabase("GardenGroup");
         }
 
+        // (MVL)
         public void InsertDocument<T>(string table, T record)
         {
             var collection = db.GetCollection<T>(table);
             collection.InsertOne(record);
         }
 
+        // (MVL)
         public List<T> GetDocuments<T>(string table)
         {
             var collection = db.GetCollection<T>(table);
             return collection.Find<T>(new BsonDocument()).ToList();
         }
 
+        // (MVL)
+        public void ArchiveData<T>(string table, FilterDefinition<T> filter)
+        {
+            var collection = db.GetCollection<T>(table);
+            var dataToBeArchived = collection.Find<T>(filter);
+
+            if (dataToBeArchived.CountDocuments() == 0)
+            {
+                return;
+            }
+
+            var archivedCollection = db.GetCollection<T>(table + "_archived");
+            archivedCollection.InsertMany(dataToBeArchived.ToList());
+
+            collection.DeleteMany(filter);
+        }
+
+        // (MVL)
         public T GetDocumentById<T>(string table, string id)
         {
             var collection = db.GetCollection<T>(table);
@@ -52,6 +74,7 @@ namespace GardenGroupDAO
             return collection.Find<T>(filter).First();
         }
 
+        // (MVL)
         public void UpdateDocument<T>(string id, string table, T updatedRecord)
         {
             var collection = db.GetCollection<T>(table);
@@ -59,18 +82,42 @@ namespace GardenGroupDAO
             collection.ReplaceOne(filter, updatedRecord, new ReplaceOptions() { IsUpsert = true });
         }
 
+        // (MVL)
         public List<T> FindByQuery<T>(string table, FilterDefinition<T> filter)
         {
             var collection = db.GetCollection<T>(table);
             return collection.Find<T>(filter).ToList();
         }
 
+        // (MVL)
         public void DeleteDocument<T>(string table, string id)
         {
             var collection = db.GetCollection<T>(table);
             var filter = Builders<T>.Filter.Eq("Id", id);
             collection.DeleteOne(filter);
         }
+
+        // (DB)
+
+        public List<T> GetUsersTicketsSortedByIDDocuments<T>(string table, User user)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("ReportedBy", user.Id);
+            var sort = Builders<T>.Sort.Descending("Id");
+
+            return collection.Find<T>(filter).Sort(sort).ToList();
+        }
+
+        public List<T> GetUsersTicketsSortedByPriorityDocuments<T>(string table, User user)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("ReportedBy", user.Id);
+            var pSort = Builders<T>.Sort.Descending("Priority");
+            var rSort = Builders<T>.Sort.Descending("ReportedDate");
+
+            return collection.Find<T>(filter).Sort(rSort).Sort(pSort).ToList();
+        }
+
 
         //(DB) - Additional functionality - sorting by id and priority
         public List<T> GetSortedIDDocuments<T>(string table)

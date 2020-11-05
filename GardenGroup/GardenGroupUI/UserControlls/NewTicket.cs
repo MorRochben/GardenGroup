@@ -133,5 +133,10 @@ namespace GardenGroupUI.UserControlls
             mainForm.Hide();
             UCUS.BringToFront();
         }
+
+        private void NewTicket_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

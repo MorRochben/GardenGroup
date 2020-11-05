@@ -3,7 +3,7 @@ namespace GardenGroupModel
 {
     public enum TypeOfUser
     {
-        Employee,
+        EndUser,
         ServiceDeskEmployee
     }
 }
