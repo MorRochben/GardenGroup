@@ -50,6 +50,9 @@ namespace GardenGroupUI
 
                 btnDeleteTicket.Enabled = false;
                 btnDeleteTicket.Visible = false;
+
+                archive.Enabled = false;
+                archive.Visible = false;
             }
 
             displayAllTickets();
@@ -218,6 +221,28 @@ namespace GardenGroupUI
             ticketService.DeleteTicket(ticket.Id);
             tickets = null;
             displayAllTickets();
+        }
+
+        // (MVL)
+        private void archive_Click(object sender, EventArgs e)
+        {
+            ticketService.ArchiveTickets();
+            listViewTickets.Items.Clear();
+
+            if (loggedInUser.TypeOfUser.Equals(TypeOfUser.EndUser))
+            {
+                tickets = ticketService.GetFromUserSortedById(loggedInUser);
+            } else
+            {
+                tickets = ticketService.GetAllSortedById();
+            }
+
+            foreach (Ticket item in tickets)
+            {
+
+                string[] row = { item.Id, item.Subject, getReportedBy(item.ReportedBy), item.ReportedDate.ToString("dd-MM-yyyy"), item.Priority.ToString() };
+                listViewTickets.Items.Add(new ListViewItem(row));
+            }
         }
     }
 }
