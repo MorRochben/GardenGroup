@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GardenGroupModel;
 
 namespace GardenGroupDAO
 {
@@ -93,7 +94,6 @@ namespace GardenGroupDAO
         {
             var collection = db.GetCollection<T>(table);
             var sort = Builders<T>.Sort.Ascending("ReportedDate");
-
             return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
         }
 
@@ -111,6 +111,16 @@ namespace GardenGroupDAO
             var sort = Builders<T>.Sort.Ascending("IsSolved");
 
             return collection.Find<T>(new BsonDocument()).Sort(sort).ToList();
+        }
+
+        //(TA) -Additional functionality - updating the password through searching by email/username
+
+        public void UpdateDocumentbyEmail<T>( string table,string email, string password)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("Email", email);
+            var update = Builders<T>.Update.Set("Password", password);
+            collection.UpdateOne(filter, update);
         }
     }
 }

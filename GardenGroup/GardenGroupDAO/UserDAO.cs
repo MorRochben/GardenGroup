@@ -50,13 +50,15 @@ namespace GardenGroupDAO
             db.UpdateDocument<User>(id, TABLE_NAME, user);
         }
         
-        public void sendEmail(string email, string tempPass)
+        public void SendEmail(string email, string tempPass)
         {
             var fromAddress = new MailAddress("nosqltestmail@gmail.com", "Admin");
             var toAddress = new MailAddress(email);
             const string fromPassword = "random@123";
             const string subject = "Password reset request.";
-            string body = "Here is a temporary password for you to login: " + tempPass + ".Make sure to change your password when you log in.Ignore this email if you did not request a reset of password or if you do not know the reason of this email.";
+            string body = $"Here is a temporary password for you to login: <b>" +
+                tempPass+"</b>.\nMake sure to change your password afterwards.<br/>Ignore this email if you did " +
+                "not request a reset of password or if you do not know the reason of this email.";
 
             var smtp = new SmtpClient
             {
@@ -70,16 +72,17 @@ namespace GardenGroupDAO
             using (var message = new MailMessage(fromAddress, toAddress)
             {
                 Subject = subject,
-                Body = body
+                Body = body,
+                IsBodyHtml = true
             })
             {
                 smtp.Send(message);
             }
         }
-        public bool resetPass(string searchValue, string updateValue)
+
+        public void ResetPassword(string email, string pass)
         {
-            var result = db.UpdateDocumentbyString("Users", searchValue, "email", updateValue, "password");
-            return result;
+             db.UpdateDocumentbyEmail<User>(TABLE_NAME, email,pass);
         }
     }
 }
